@@ -1,0 +1,745 @@
+{
+  "tagsArrayGroupOne": [
+    {
+      "description": "BUG - Highlights the Keyword BUG (Group One)",
+      "keyword": "bug",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderRadius": "5px",
+        "light": {
+          "backgroundColor": "#79180b",
+          "color": "#f5cb8c"
+        },
+        "dark": {
+          "backgroundColor": "#79180b",
+          "color": "#f5cb8c"
+        }
+      }
+    },
+    {
+      "description": "CHANGED - Highlights the Keyword CHANGED (Group One)",
+      "keyword": "changed",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderRadius": "5px",
+        "light": {
+          "backgroundColor": "#4b3d17",
+          "color": "#e3b34a"
+        },
+        "dark": {
+          "backgroundColor": "#4b3d17",
+          "color": "#e3b34a"
+        }
+      }
+    },
+    {
+      "description": "DEBUG - Highlights the Keyword DEBUG (Group One)",
+      "keyword": "debug",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderRadius": "5px",
+        "light": {
+          "backgroundColor": "#8c2a1d",
+          "color": "#e6aaa2"
+        },
+        "dark": {
+          "backgroundColor": "#8c2a1d",
+          "color": "#e6aaa2"
+        }
+      }
+    },
+    {
+      "description": "FIXME - Highlights the Keyword FIXME (Group One)",
+      "keyword": "fixme",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderRadius": "5px",
+        "light": {
+          "backgroundColor": "#9e3d00",
+          "color": "#f3c280"
+        },
+        "dark": {
+          "backgroundColor": "#9e3d00",
+          "color": "#f3c280"
+        }
+      }
+    },
+    {
+      "description": "HACK - Highlights the Keyword HACK (Group One)",
+      "keyword": "hack",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderRadius": "5px",
+        "light": {
+          "backgroundColor": "#650084",
+          "color": "#d9a5ea"
+        },
+        "dark": {
+          "backgroundColor": "#650084",
+          "color": "#d9a5ea"
+        }
+      }
+    },
+    {
+      "description": "IDEA - Highlights the Keyword IDEA (Group One)",
+      "keyword": "idea",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderRadius": "5px",
+        "light": {
+          "backgroundColor": "#c5af4b",
+          "color": "#2d141f"
+        },
+        "dark": {
+          "backgroundColor": "#c5af4b",
+          "color": "#2d141f"
+        }
+      }
+    },
+    {
+      "description": "NOTE - Highlights the Keyword NOTE (Group One)",
+      "keyword": "note",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderRadius": "5px",
+        "light": {
+          "backgroundColor": "#0047ab",
+          "color": "#f5e3ff"
+        },
+        "dark": {
+          "backgroundColor": "#0047ab",
+          "color": "#f5e3ff"
+        }
+      }
+    },
+    {
+      "description": "OPTIMIZE - Highlights the Keyword OPTIMIZE (Group One)",
+      "keyword": "optimize",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderRadius": "5px",
+        "light": {
+          "backgroundColor": "#315a48",
+          "color": "#a6ffdd"
+        },
+        "dark": {
+          "backgroundColor": "#315a48",
+          "color": "#a6ffdd"
+        }
+      }
+    },
+    {
+      "description": "RESEARCH - Highlights the Keyword RESEARCH (Group One)",
+      "keyword": "research",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderRadius": "5px",
+        "light": {
+          "backgroundColor": "#003153",
+          "color": "#94e1f1"
+        },
+        "dark": {
+          "backgroundColor": "#003153",
+          "color": "#94e1f1"
+        }
+      }
+    },
+    {
+      "description": "REVIEW - Highlights the Keyword REVIEW (Group One)",
+      "keyword": "review",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderRadius": "5px",
+        "light": {
+          "backgroundColor": "#000080",
+          "color": "#40bdee"
+        },
+        "dark": {
+          "backgroundColor": "#000080",
+          "color": "#40bdee"
+        }
+      }
+    },
+    {
+      "description": "TEMP - Highlights the Keyword TEMP (Group One)",
+      "keyword": "temp",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderRadius": "5px",
+        "light": {
+          "backgroundColor": "#033e00",
+          "color": "#bfc638"
+        },
+        "dark": {
+          "backgroundColor": "#033e00",
+          "color": "#bfc638"
+        }
+      }
+    },
+    {
+      "description": "TODO - Highlights the Keyword TODO (Group One)",
+      "keyword": "todo",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderRadius": "5px",
+        "light": {
+          "backgroundColor": "#018e7e",
+          "color": "#e3fcf0"
+        },
+        "dark": {
+          "backgroundColor": "#018e7e",
+          "color": "#e3fcf0"
+        }
+      }
+    }
+  ],
+  "tagsArrayGroupTwo": [
+    {
+      "description": "BUG - Highlights the Keyword BUG (Group Two)",
+      "keyword": "bug",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "color": "#fe523b",
+          "fontWeight": "600"
+        },
+        "dark": {
+          "color": "#fe523b"
+        }
+      }
+    },
+    {
+      "description": "CHANGED - Highlights the Keyword CHANGED (Group Two)",
+      "keyword": "changed",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "color": "#c5952d",
+          "fontWeight": "600"
+        },
+        "dark": {
+          "color": "#c5952d"
+        }
+      }
+    },
+    {
+      "description": "DEBUG - Highlights the Keyword DEBUG (Group Two)",
+      "keyword": "debug",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "color": "#ee6b6b",
+          "fontWeight": "600"
+        },
+        "dark": {
+          "color": "#ee6b6b"
+        }
+      }
+    },
+    {
+      "description": "FIXME - Highlights the Keyword FIXME (Group Two)",
+      "keyword": "fixme",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "color": "#ff7f30",
+          "fontWeight": "600"
+        },
+        "dark": {
+          "color": "#ff7f30"
+        }
+      }
+    },
+    {
+      "description": "HACK - Highlights the Keyword HACK (Group Two)",
+      "keyword": "hack",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "color": "#9f4bff",
+          "fontWeight": "600"
+        },
+        "dark": {
+          "color": "#de83fa"
+        }
+      }
+    },
+    {
+      "description": "IDEA - Highlights the Keyword IDEA (Group Two)",
+      "keyword": "idea",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "color": "#ba9e1e",
+          "fontWeight": "600"
+        },
+        "dark": {
+          "color": "#f0cc2e"
+        }
+      }
+    },
+    {
+      "description": "NOTE - Highlights the Keyword NOTE (Group Two)",
+      "keyword": "note",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "color": "#00504a",
+          "fontWeight": "600"
+        },
+        "dark": {
+          "color": "#f5e3ff"
+        }
+      }
+    },
+    {
+      "description": "OPTIMIZE - Highlights the Keyword OPTIMIZE (Group Two)",
+      "keyword": "optimize",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "color": "#1b996b",
+          "fontWeight": "600"
+        },
+        "dark": {
+          "color": "#a6ffdd"
+        }
+      }
+    },
+    {
+      "description": "RESEARCH - Highlights the Keyword RESEARCH (Group Two)",
+      "keyword": "research",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "color": "#3596aa",
+          "fontWeight": "600"
+        },
+        "dark": {
+          "color": "#94e1f1"
+        }
+      }
+    },
+    {
+      "description": "REVIEW - Highlights the Keyword REVIEW (Group Two)",
+      "keyword": "review",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "color": "#3a6b7d",
+          "fontWeight": "600"
+        },
+        "dark": {
+          "color": "#40bdee"
+        }
+      }
+    },
+    {
+      "description": "TEMP - Highlights the Keyword TEMP (Group Two)",
+      "keyword": "temp",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "color": "#01663a",
+          "fontWeight": "600"
+        },
+        "dark": {
+          "color": "#00a693"
+        }
+      }
+    },
+    {
+      "description": "TODO - Highlights the Keyword TODO (Group Two)",
+      "keyword": "todo",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "color": "#805844",
+          "fontWeight": "600"
+        },
+        "dark": {
+          "color": "#c9ffe5"
+        }
+      }
+    }
+  ],
+  "tagBlocksArray": [
+    {
+      "description": "Main Title - Highlights Main Title Block",
+      "startText": " ● ",
+      "endText": " ● ",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderWidth": "1px",
+        "borderStyle": "solid",
+        "borderRadius": "8px",
+        "light": {
+          "borderColor": "#FF0000",
+          "backgroundColor": "#e6e60a",
+          "color": "#2a0404"
+        },
+        "dark": {
+          "borderColor": "#e3e7e1",
+          "backgroundColor": "#834f3d",
+          "color": "#f0f0ac"
+        }
+      }
+    },
+    {
+      "description": "Sub Title - Highlights Sub Title Block",
+      "startText": " • ",
+      "endText": " • ",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderWidth": "1px",
+        "borderStyle": "solid",
+        "borderRadius": "8px",
+        "light": {
+          "borderColor": "#032828",
+          "backgroundColor": "#fec760",
+          "color": "#1e2300"
+        },
+        "dark": {
+          "borderColor": "#f2d1d8",
+          "backgroundColor": "#3c300e",
+          "color": "#ffff00"
+        }
+      }
+    },
+    {
+      "description": "Hidden Title - Highlights Hidden Title Block",
+      "startText": " ",
+      "endText": " ",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "borderWidth": "1px",
+        "borderStyle": "solid",
+        "borderRadius": "8px",
+        "light": {
+          "borderColor": "#ffd700",
+          "backgroundColor": "#8d3800",
+          "color": "#edf50b"
+        },
+        "dark": {
+          "borderColor": "#ffd700",
+          "backgroundColor": "#72600c",
+          "color": "#E6F1C8"
+        }
+      }
+    },
+    {
+      "description": "Underline - Underline Text Block",
+      "startText": "₋",
+      "endText": "₋",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "fontWeight": "bold",
+        "light": {
+          "color": "#1e1570",
+          "textDecoration": "underline black 2px"
+        },
+        "dark": {
+          "color": "#cd7510",
+          "textDecoration": "underline #9f9700 2px"
+        }
+      }
+    },
+    {
+      "description": "Strikethrough - Strikethrough Text Block",
+      "startText": "╶",
+      "endText": "╴",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "fontWeight": "bold",
+        "light": {
+          "color": "#1e3e33",
+          "textDecoration": "line-through red 2px"
+        },
+        "dark": {
+          "color": "#319f45",
+          "textDecoration": "line-through red 2px"
+        }
+      }
+    }
+  ],
+  "specialTagsArray": [
+    {
+      "description": "Filelink - Used to highlight Markdown Local Project Note Files",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "color": "#1a675a",
+          "cursor": "pointer",
+          "textDecoration": "underline",
+          "fontWeight": "bold"
+        },
+        "dark": {
+          "color": "#6ed3c2",
+          "cursor": "pointer",
+          "textDecoration": "underline",
+          "fontWeight": "bold"
+        }
+      }
+    },
+    {
+      "description": "GlobalFilelink - Used to highlight Markdown Global Note Files",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "color": "#082953",
+          "cursor": "pointer",
+          "textDecoration": "underline",
+          "fontWeight": "bold"
+        },
+        "dark": {
+          "color": "#7cabe7",
+          "cursor": "pointer",
+          "textDecoration": "underline",
+          "fontWeight": "bold"
+        }
+      }
+    },
+    {
+      "description": "Parentheses - Highlights Text in Parentheses",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "color": "#936bf7",
+          "fontWeight": "600"
+        },
+        "dark": {
+          "color": "#a38cda",
+          "fontWeight": "500"
+        }
+      }
+    },
+    {
+      "description": "Curly Braces - Highlights Text in Curly Braces",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "color": "#9c9900",
+          "fontWeight": "600"
+        },
+        "dark": {
+          "color": "#bab830",
+          "fontWeight": "500"
+        }
+      }
+    },
+    {
+      "description": "Brackets - Highlights Text in Brackets",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "color": "#00b4ab",
+          "fontWeight": "600"
+        },
+        "dark": {
+          "color": "#1eb5ad",
+          "fontWeight": "500"
+        }
+      }
+    },
+    {
+      "description": "Backticks - Highlights Text in Backticks",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "color": "#104c66",
+          "fontStyle": "italic"
+        },
+        "dark": {
+          "color": "#21a0d3",
+          "fontStyle": "italic"
+        }
+      }
+    },
+    {
+      "description": "Double Quotes - Highlights Text in Single Quotes",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "color": "#9e5a2f",
+          "fontStyle": "italic"
+        },
+        "dark": {
+          "color": "#a7e0f7",
+          "fontStyle": "italic"
+        }
+      }
+    },
+    {
+      "description": "Single Quotes - Highlights Text in Single Quotes",
+      "isEnabled": true,
+      "decoratorOptions": {
+        "light": {
+          "color": "#ca7c4b",
+          "fontStyle": "italic"
+        },
+        "dark": {
+          "color": "#5ecaf5",
+          "fontStyle": "italic"
+        }
+      }
+    }
+  ],
+  "extensions": [
+    {
+      "description": "# or ; Single line comments",
+      "ext": [
+        "asm",
+        "ini"
+      ],
+      "commentsRegEx": "[#|;][^\\r\\n]\\s*([^\\r\\n]+?)[\\r\\n]"
+    },
+    {
+      "description": "// Single line comments -or- /* Single line comments */ -or- /* Multiline comments */",
+      "ext": [
+        "c",
+        "cc",
+        "cp",
+        "cs",
+        "cpp",
+        "c++",
+        "cxx",
+        "cppm",
+        "ixx",
+        "go",
+        "java",
+        "js",
+        "jsx",
+        "kt",
+        "kts",
+        "ktm",
+        "less",
+        "php",
+        "scss",
+        "swift",
+        "ts",
+        "tsx",
+        "vue",
+        "jsonc"
+      ],
+      "commentsRegEx": "(?<!:)\\/\\/\\s*(.+$)|\\/\\*\\s*([\\s\\S]+?)\\s*\\*\\/|\\/\\*\\*?[\\r\\n]([\\s\\S]+?)\\*\\*?\\/"
+    },
+    {
+      "description": "/* Single line comments */ -and- /* Multiline comments */",
+      "ext": [
+        "css"
+      ],
+      "commentsRegEx": "\\/\\*\\s*([\\s\\S]+?)\\s*\\*\\/"
+    },
+    {
+      "description": "### Multiline comments -or- # Single line comments",
+      "ext": [
+        "coffee"
+      ],
+      "commentsRegEx": "\\#\\#\\#\\s*([\\s\\S]+?)\\s*\\#\\#\\#[\\r\\n]?|\\#[^\\r\\n]\\s*([\\s\\S]+?)[\\r\\n]"
+    },
+    {
+      "description": "// -or- ; Single line comments",
+      "ext": [
+        "tbs"
+      ],
+      "commentsRegEx": "[//|;]\\s*([^\r\n]+?)[\r\n]"
+    },
+    {
+      "description": "rem -or- :: -or- & :: Single line comments",
+      "ext": [
+        "bat",
+        "cmd"
+      ],
+      "commentsRegEx": "rem\\s*([^\\r\\n]+?)[\\r\\n]|::\\s*([^\\r\\n]+?)[\\r\\n]|& ::\\s*([^\\r\\n]+?)[\\r\\n]"
+    },
+    {
+      "description": "<!-- Single line comments --> -or- {{* Single and Multiline comments *}} -or- // Single line comments -or- /* Single line comments */ -or- /* Multiline comments */",
+      "ext": [
+        "html",
+        "vue"
+      ],
+      "commentsRegEx": "<!--\\s*([\\s\\S]*?)\\s*-->|\\{\\{\\/\\*[\\r\\n]?([\\s\\S]*?)\\*\\/}\\}|(?<!:)\\/\\/\\s*(.+$)|\\/\\*\\s*([\\s\\S]+?)\\s*\\*\\/|\\/\\*\\*?[\\r\\n]([\\s\\S]+?)\\*\\*?\\/"
+    },
+    {
+      "description": "<!-- Single line and Multiline comments --> -or- {::comment} Single line and Multiline comments {:/comment} -or- []: # Single line comments",
+      "ext": [
+        "md"
+      ],
+      "commentsRegEx": "<!---?\\s*([\\s\\S]+?)\\s*-->|{::comment}[\\r\\n]?\\s*([\\s\\S]+?){:\\/comment}|\\[[\\s\\S]*?\\]:\\s+#\\s+([^\\r\\n]+)[\\r\\n]?"
+    },
+    {
+      "description": "/* Multiline comments */ -and- /* Single line comments */ -or- -- Single line comments",
+      "ext": [
+        "sql"
+      ],
+      "commentsRegEx": "\\/\\*\\s*([\\s\\S]+?)\\s*\\*\\/|--\\s*([^\\r\\n]+)"
+    },
+    {
+      "description": "\"\"\" Multiline comments \"\"\" -or- # Single line comments",
+      "ext": [
+        "py"
+      ],
+      "commentsRegEx": "\\\"\\\"\\\"\\s*([\\s\\S]+?)[\\r\\n]*\\\"\\\"\\\"|#\\s*([^\\r\\n]+)"
+    },
+    {
+      "description": "=begin Multiline comments =end -or- # Single line comments",
+      "ext": [
+        "rb"
+      ],
+      "commentsRegEx": "(?:=begin)[\\r\\n]+\\s*([\\s\\S]*?)(?:=end)|#\\s*([^\\r\\n]+)"
+    },
+    {
+      "description": "/// Single line comments -and- //! Single line comments -and- // Single line comments",
+      "ext": [
+        "rs",
+        "rlib"
+      ],
+      "commentsRegEx": "\\/\\/\\/[^\\r\\n]\\s*([^\\r\\n]+)|\\/\\/![^\\r\\n]\\s*([^\\r\\n]+)|\\/\\/[^\\/!\\r\\n]([^\\r\\n]+)"
+    },
+    {
+      "description": "{# Single line comments -and- Multiline comments #}",
+      "ext": [
+        "twig"
+      ],
+      "commentsRegEx": "{#\\s*([\\s\\S]+?)\\s*#}"
+    },
+    {
+      "description": "{# Single line comments -or- =anyword Multiline comments =cut",
+      "ext": [
+        "pl"
+      ],
+      "commentsRegEx": "(?:^=)(?:[^\\r\\n]+)[\\r\\n]\\s*([\\s\\S]+?)[\\r\\n]+=cut|(?:#)\\s*([^\\r\\n]+)"
+    },
+    {
+      "description": "%{ Multiline comments %} -or % Single line comments -or- ...Commenting part of a statement spanning multiple lines uses ellipsis...",
+      "ext": [
+        "m",
+        "mat"
+      ],
+      "commentsRegEx": "^%{[\\r\\n]([\\s\\S]+?)^%}|%\\s*([^\\r\\n]+)|\\.\\.\\.([^\\r\\n]+)\\.\\.\\."
+    },
+    {
+      "description": "(single quote) Single line comment",
+      "ext": [
+        "bas",
+        "cls"
+      ],
+      "commentsRegEx": "'\\s*([^\\r\\n]+)"
+    },
+    {
+      "description": "# Single line comment",
+      "ext": [
+        "r"
+      ],
+      "commentsRegEx": "#\\s*([^\\r\\n]+)"
+    },
+    {
+      "description": "// Single line comment -or- { Multiline comment } -or- (* Multiline comment*)",
+      "ext": [
+        "dpr",
+        "pas"
+      ],
+      "commentsRegEx": "\\/\\/\\s*([^\\r\\n]+?)[\\r\\n]|\\(\\*\\s*([\\s\\S]+?)\\s*\\*\\)|\\{\\s*([\\s\\S]+?)\\s*\\}"
+    }
+  ]
+}

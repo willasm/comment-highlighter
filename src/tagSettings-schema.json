@@ -1,0 +1,2518 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "title": "The root schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": {},
+  "examples": [],
+  "required": [
+    "tagsArrayGroupOne",
+    "tagsArrayGroupTwo",
+    "tagBlocksArray",
+    "specialTagsArray",
+    "extensions"
+  ],
+  "properties": {
+    "tagsArrayGroupOne": {
+      "$id": "#/properties/tagsArrayGroupOne",
+      "type": "array",
+      "title": "",
+      "markdownDescription": "**tagsArrayGroupOne**\n\nArray of all group one defined keywords.\n\nHighlights the keyword tag only.",
+      "default": [],
+      "examples": [],
+      "additionalItems": true,
+      "items": {
+        "$id": "#/properties/tagsArrayGroupOne/items",
+        "anyOf": [
+          {
+            "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0",
+            "type": "object",
+            "title": "",
+            "markdownDescription": "anyOf Not defined.",
+            "default": {},
+            "examples": [],
+            "required": [
+              "description",
+              "keyword",
+              "isEnabled",
+              "decoratorOptions"
+            ],
+            "properties": {
+              "description": {
+                "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/description",
+                "type": "string",
+                "title": "",
+                "markdownDescription": "**Description**\n\nDescription for this keyword.",
+                "default": "",
+                "examples": []
+              },
+              "keyword": {
+                "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/keyword",
+                "type": "string",
+                "title": "",
+                "markdownDescription": "**Keyword**\n\nKeywords text to highlight.",
+                "default": "",
+                "examples": []
+              },
+              "isEnabled": {
+                "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/isEnabled",
+                "type": "boolean",
+                "title": "",
+                "markdownDescription": "**isEnabled**\n\n_Enable_ or _Disable_ highlighting for this keyword.",
+                "default": true,
+                "examples": [
+                  true,
+                  false
+                ]
+              },
+              "decoratorOptions": {
+                "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions",
+                "type": "object",
+                "title": "",
+                "markdownDescription": "**decoratorOptions**\n\nDecorator options to apply to this keyword.",
+                "default": {},
+                "examples": [],
+                "required": [
+                  "light",
+                  "dark"
+                ],
+                "properties": {
+                  "backgroundColor": {
+                    "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/backgroundColor",
+                    "type": "string",
+                    "format": "color-hex",
+                    "title": "",
+                    "markdownDescription": "**backgroundColor**\n\nSets the background color for this keyword.",
+                    "default": "#FF0000",
+                    "examples": [
+                      "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                    ]
+                  },
+                  "outline": {
+                    "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/outline",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**outline**\n\nSets the outline style for this keyword.",
+                    "default": "#solid",
+                    "examples": [
+                      "#solid","dashed red","0.2rem solid","thick double #00FF00","8px ridge rgba(170, 50, 220, .6)"
+                    ]
+                  },
+                  "border": {
+                    "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/border",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**border**\n\nThis property is a shorthand for the following CSS properties:\n\n_border-color_\n\n_border-style_\n\n_border-width_",
+                    "default": "solid",
+                    "examples": [
+                      "solid","dashed red","0.2rem solid","thick double #00FF00"
+                    ]
+                  },
+                  "borderColor": {
+                    "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/borderColor",
+                    "type": "string",
+                    "format": "color-hex",
+                    "title": "",
+                    "markdownDescription": "**borderColor**\n\nSets the border color for this keyword.",
+                    "default": "#FF0000",
+                    "examples": [
+                      "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                    ]
+                  },
+                  "borderRadius": {
+                    "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/borderRadius",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**borderRadius**\n\nAdds rounded corners to this keywords background color.",
+                    "default": "5px",
+                    "examples": [
+                      "5px",
+                      "8px",
+                      "3px 8px",
+                      "3px 8px 3px 8px"
+                    ]
+                  },
+                  "borderWidth": {
+                    "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/borderWidth",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**borderWidth**\n\nSets the border width of this keyword.",
+                    "default": "",
+                    "examples": [
+                      "thick",
+                      "0.2em",
+                      "0 4px 8px 12px",
+                      "2px"
+                    ]
+                  },
+                  "fontStyle": {
+                    "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/fontStyle",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**fontStyle**\n\nSets font style for this keywords text.",
+                    "default": "",
+                    "examples": [
+                      "normal",
+                      "italic",
+                      "oblique"
+                    ]
+                  },
+                  "fontWeight": {
+                    "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/fontWeight",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**fontWeight**\n\nSets font weight for this keywords text.",
+                    "default": "normal",
+                    "examples": [
+                      "100",
+                      "200",
+                      "300",
+                      "500",
+                      "600",
+                      "800",
+                      "900",
+                      "bold",
+                      "bolder",
+                      "lighter",
+                      "normal"
+                    ]
+                  },
+                  "textDecoration": {
+                    "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/textDecoration",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**textDecoration**\n\nSets the decorations of this keyword.",
+                    "default": "underline",
+                    "examples": [
+                      "underline",
+                      "underline dotted",
+                      "underline dotted red",
+                      "green wavy underline",
+                      "underline overline #FF3028"
+                    ]
+                  },
+                  "cursor": {
+                    "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/cursor",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**cursor**\n\nSets the cursor icon of this keyword.",
+                    "default": "pointer",
+                    "examples": [
+                      "help",
+                      "crosshair",
+                      "not-allowed",
+                      "zoom-in",
+                      "zoom-out",
+                      "grab",
+                      "pointer"
+                    ]
+                  },
+                  "color": {
+                    "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/color",
+                    "type": "string",
+                    "format": "color-hex",
+                    "title": "",
+                    "markdownDescription": "**color**\n\nSets the text color for this keyword.",
+                    "default": "#008080",
+                    "examples": [
+                      "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                    ]
+                  },
+                  "letterSpacing": {
+                    "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/letterSpacing",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**letterSpacing**\n\nSets the text letter spacing for this keyword.",
+                    "default": "normal",
+                    "examples": [
+                      "normal","0.2rem","1px","-1px"
+                    ]
+                  },
+                  "gutterIconPath": {
+                    "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/gutterIconPath",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**gutterIconPath**\n\nSets the _gutter icon_ for this keyword.\n\nNote: can be an absolute path.",
+                    "default": "",
+                    "examples": []
+                  },
+                  "gutterIconSize": {
+                    "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/gutterIconSize",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**gutterIconSize**\n\nSets the _gutter icon size_ for this keyword.",
+                    "default": "contain",
+                    "examples": [
+                      "contain"
+                    ]
+                  },
+                  "light": {
+                    "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/light",
+                    "type": "object",
+                    "title": "",
+                    "markdownDescription": "**light**\n\nDecorator options applied to light themes.",
+                    "default": {},
+                    "examples": [],
+                    "required": [
+                      "color"
+                    ],
+                    "properties": {
+                      "backgroundColor": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/light/properties/backgroundColor",
+                        "type": "string",
+                        "format": "color-hex",
+                        "title": "",
+                        "markdownDescription": "**backgroundColor**\n\nSets the background color for this keyword.",
+                        "default": "#FF0000",
+                        "examples": [
+                          "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                        ]
+                      },
+                      "outline": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/light/properties/outline",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**outline**\n\nSets the outline style for this keyword.",
+                        "default": "#solid",
+                        "examples": [
+                          "#solid","dashed red","0.2rem solid","thick double #00FF00","8px ridge rgba(170, 50, 220, .6)"
+                        ]
+                      },
+                      "border": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/light/properties/border",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**border**\n\nThis property is a shorthand for the following CSS properties:\n\n_border-color_\n\n_border-style_\n\n_border-width_",
+                        "default": "solid",
+                        "examples": [
+                          "solid","dashed red","0.2rem solid","thick double #00FF00"
+                        ]
+                      },
+                      "borderColor": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/light/properties/borderColor",
+                        "type": "string",
+                        "format": "color-hex",
+                        "title": "",
+                        "markdownDescription": "**borderColor**\n\nSets the border color for this keyword.",
+                        "default": "#FF0000",
+                        "examples": [
+                          "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                        ]
+                      },
+                      "borderRadius": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/light/properties/borderRadius",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**borderRadius**\n\nAdds rounded corners to this keywords background color.",
+                        "default": "5px",
+                        "examples": [
+                          "5px",
+                          "8px",
+                          "3px 8px",
+                          "3px 8px 3px 8px"
+                            ]
+                      },
+                      "borderWidth": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/light/properties/borderWidth",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**borderWidth**\n\nSets the border width of this keyword.",
+                        "default": "",
+                        "examples": [
+                          "thick",
+                          "0.2em",
+                          "0 4px 8px 12px",
+                          "2px"
+                        ]
+                      },
+                      "fontStyle": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/light/properties/fontStyle",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**fontStyle**\n\nSets font style for this keywords text.",
+                        "default": "",
+                        "examples": [
+                          "normal",
+                          "italic",
+                          "oblique"
+                        ]
+                      },
+                      "fontWeight": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/light/properties/fontWeight",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**fontWeight**\n\nSets font weight for this keywords text.",
+                        "default": "normal",
+                        "examples": [
+                          "100",
+                          "200",
+                          "300",
+                          "500",
+                          "600",
+                          "800",
+                          "900",
+                          "bold",
+                          "bolder",
+                          "lighter",
+                          "normal"
+                        ]
+                      },
+                      "textDecoration": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/light/properties/textDecoration",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**textDecoration**\n\nSets the decorations of this keyword.",
+                        "default": "underline",
+                        "examples": [
+                          "underline",
+                          "underline dotted",
+                          "underline dotted red",
+                          "green wavy underline",
+                          "underline overline #FF3028"
+                        ]
+                      },
+                      "cursor": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/light/properties/cursor",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**cursor**\n\nSets the cursor icon of this keyword.",
+                        "default": "pointer",
+                        "examples": [
+                          "help",
+                          "crosshair",
+                          "not-allowed",
+                          "zoom-in",
+                          "zoom-out",
+                          "grab",
+                          "pointer"
+                        ]
+                      },
+                      "color": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/light/properties/color",
+                        "type": "string",
+                        "format": "color-hex",
+                        "title": "",
+                        "markdownDescription": "**color**\n\nSets the text color for this keyword.",
+                        "default": "#00FF00",
+                        "examples": [
+                          "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                        ]
+                      },
+                      "letterSpacing": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/light/properties/letterSpacing",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**letterSpacing**\n\nSets the text letter spacing for this keyword.",
+                        "default": "normal",
+                        "examples": [
+                          "normal","0.2rem","1px","-1px"
+                        ]
+                      },
+                      "gutterIconPath": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/light/properties/gutterIconPath",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**gutterIconPath**\n\nSets the _gutter icon_ for this keyword.\n\nNote: can be an absolute path.",
+                        "default": "",
+                        "examples": []
+                      },
+                      "gutterIconSize": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/light/properties/gutterIconSize",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**gutterIconSize**\n\nSets the _gutter icon size_ for this keyword.",
+                        "default": "contain",
+                        "examples": [
+                          "contain"
+                        ]
+                      }
+                    },
+                    "additionalProperties": true
+                  },
+                  "dark": {
+                    "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/dark",
+                    "type": "object",
+                    "title": "",
+                    "markdownDescription": "**dark**\n\nDecorator options applied to dark themes.",
+                    "default": {},
+                    "examples": [],
+                    "required": [
+                      "color"
+                    ],
+                    "properties": {
+                      "backgroundColor": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/backgroundColor",
+                        "type": "string",
+                        "format": "color-hex",
+                        "title": "",
+                        "markdownDescription": "**backgroundColor**\n\nSets the background color for this keyword.",
+                        "default": "#FF0000",
+                        "examples": [
+                          "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                        ]
+                      },
+                      "outline": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/outline",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**outline**\n\nSets the outline style for this keyword.",
+                        "default": "#solid",
+                        "examples": [
+                          "#solid","dashed red","0.2rem solid","thick double #00FF00","8px ridge rgba(170, 50, 220, .6)"
+                        ]
+                      },
+                      "border": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/border",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**border**\n\nThis property is a shorthand for the following CSS properties:\n\n_border-color_\n\n_border-style_\n\n_border-width_",
+                        "default": "solid",
+                        "examples": [
+                          "solid","dashed red","0.2rem solid","thick double #00FF00"
+                        ]
+                      },
+                      "borderColor": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/borderColor",
+                        "type": "string",
+                        "format": "color-hex",
+                        "title": "",
+                        "markdownDescription": "**borderColor**\n\nSets the border color for this keyword.",
+                        "default": "#FF0000",
+                        "examples": [
+                          "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                        ]
+                      },
+                      "borderRadius": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/borderRadius",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**borderRadius**\n\nAdds rounded corners to this keywords background color.",
+                        "default": "5px",
+                        "examples": [
+                          "5px",
+                          "8px",
+                          "3px 8px",
+                          "3px 8px 3px 8px"
+                        ]
+                      },
+                      "borderWidth": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/borderWidth",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**borderWidth**\n\nSets the border width of this keyword.",
+                        "default": "",
+                        "examples": [
+                          "thick",
+                          "0.2em",
+                          "0 4px 8px 12px",
+                          "2px"
+                        ]
+                      },
+                      "fontStyle": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/fontStyle",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**fontStyle**\n\nSets font style for this keywords text.",
+                        "default": "",
+                        "examples": [
+                          "normal",
+                          "italic",
+                          "oblique"
+                        ]
+                      },
+                      "fontWeight": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/fontWeight",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**fontWeight**\n\nSets font weight for this keywords text.",
+                        "default": "normal",
+                        "examples": [
+                          "100",
+                          "200",
+                          "300",
+                          "500",
+                          "600",
+                          "800",
+                          "900",
+                          "bold",
+                          "bolder",
+                          "lighter",
+                          "normal"
+                        ]
+                      },
+                      "textDecoration": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/textDecoration",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**textDecoration**\n\nSets the decorations of this keyword.",
+                        "default": "underline",
+                        "examples": [
+                          "underline",
+                          "underline dotted",
+                          "underline dotted red",
+                          "green wavy underline",
+                          "underline overline #FF3028"
+                        ]
+                      },
+                      "cursor": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/cursor",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**cursor**\n\nSets the cursor icon of this keyword.",
+                        "default": "pointer",
+                        "examples": [
+                          "help",
+                          "crosshair",
+                          "not-allowed",
+                          "zoom-in",
+                          "zoom-out",
+                          "grab",
+                          "pointer"
+                        ]
+                      },
+                      "color": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/color",
+                        "type": "string",
+                        "format": "color-hex",
+                        "title": "",
+                        "markdownDescription": "**color**\n\nSets the text color for this keyword.",
+                        "default": "#008080",
+                        "examples": [
+                          "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                        ]
+                      },
+                      "letterSpacing": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/letterSpacing",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**letterSpacing**\n\nSets the text letter spacing for this keyword.",
+                        "default": "normal",
+                        "examples": [
+                          "normal","0.2rem","1px","-1px"
+                        ]
+                      },
+                      "gutterIconPath": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/gutterIconPath",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**gutterIconPath**\n\nSets the _gutter icon_ for this keyword.\n\nNote: can be an absolute path.",
+                        "default": "",
+                        "examples": []
+                      },
+                      "gutterIconSize": {
+                        "$id": "#/properties/tagsArrayGroupOne/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/gutterIconSize",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**gutterIconSize**\n\nSets the _gutter icon size_ for this keyword.",
+                        "default": "contain",
+                        "examples": [
+                          "contain"
+                        ]
+                      }
+                    },
+                    "additionalProperties": true
+                  }
+                },
+                "additionalProperties": true
+              }
+            },
+            "additionalProperties": true
+          }
+        ]
+      }
+    },
+    "tagsArrayGroupTwo": {
+      "$id": "#/properties/tagsArrayGroupTwo",
+      "type": "array",
+      "title": "",
+      "markdownDescription": "**tagsArrayGroupTwo**\n\nArray of all group two defined keywords.\n\nHighlights the keyword tag and all the following text to the end of line.",
+      "default": [],
+      "examples": [],
+      "additionalItems": true,
+      "items": {
+        "$id": "#/properties/tagsArrayGroupTwo/items",
+        "anyOf": [
+          {
+            "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0",
+            "type": "object",
+            "title": "",
+            "markdownDescription": "anyOf Not defined.",
+            "default": {},
+            "examples": [],
+            "required": [
+              "description",
+              "keyword",
+              "isEnabled",
+              "decoratorOptions"
+            ],
+            "properties": {
+              "description": {
+                "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/description",
+                "type": "string",
+                "title": "",
+                "markdownDescription": "**Description**\n\nDescription for this keyword.",
+                "default": "",
+                "examples": []
+              },
+              "keyword": {
+                "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/keyword",
+                "type": "string",
+                "title": "",
+                "markdownDescription": "**Keyword**\n\nKeywords text to highlight.",
+                "default": "",
+                "examples": []
+              },
+              "isEnabled": {
+                "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/isEnabled",
+                "type": "boolean",
+                "title": "",
+                "markdownDescription": "**isEnabled**\n\n_Enable_ or _Disable_ highlighting for this keyword.",
+                "default": true,
+                "examples": [
+                  true,
+                  false
+                ]
+              },
+              "decoratorOptions": {
+                "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions",
+                "type": "object",
+                "title": "",
+                "markdownDescription": "**decoratorOptions**\n\nDecorator options to apply to this keyword.",
+                "default": {},
+                "examples": [],
+                "required": [
+                  "light",
+                  "dark"
+                ],
+                "properties": {
+                  "backgroundColor": {
+                    "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/backgroundColor",
+                    "type": "string",
+                    "format": "color-hex",
+                    "title": "",
+                    "markdownDescription": "**backgroundColor**\n\nSets the background color for this keyword.",
+                    "default": "#FF0000",
+                    "examples": [
+                      "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                    ]
+                  },
+                  "outline": {
+                    "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/outline",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**outline**\n\nSets the outline style for this keyword.",
+                    "default": "#solid",
+                    "examples": [
+                      "#solid","dashed red","0.2rem solid","thick double #00FF00","8px ridge rgba(170, 50, 220, .6)"
+                    ]
+                  },
+                  "border": {
+                    "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/border",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**border**\n\nThis property is a shorthand for the following CSS properties:\n\n_border-color_\n\n_border-style_\n\n_border-width_",
+                    "default": "solid",
+                    "examples": [
+                      "solid","dashed red","0.2rem solid","thick double #00FF00"
+                    ]
+                  },
+                  "borderColor": {
+                    "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/borderColor",
+                    "type": "string",
+                    "format": "color-hex",
+                    "title": "",
+                    "markdownDescription": "**borderColor**\n\nSets the border color for this keyword.",
+                    "default": "#FF0000",
+                    "examples": [
+                      "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                    ]
+                  },
+                  "borderRadius": {
+                    "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/borderRadius",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**borderRadius**\n\nAdds rounded corners to this keywords background color.",
+                    "default": "5px",
+                    "examples": [
+                      "5px",
+                      "8px",
+                      "3px 8px",
+                      "3px 8px 3px 8px"
+                ]
+                  },
+                  "borderWidth": {
+                    "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/borderWidth",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**borderWidth**\n\nSets the border width of this keyword.",
+                    "default": "",
+                    "examples": [
+                      "thick",
+                      "0.2em",
+                      "0 4px 8px 12px",
+                      "2px"
+                    ]
+                  },
+                  "fontStyle": {
+                    "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/fontStyle",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**fontStyle**\n\nSets font style for this keywords text.",
+                    "default": "",
+                    "examples": [
+                      "normal",
+                      "italic",
+                      "oblique"
+                    ]
+                  },
+                  "fontWeight": {
+                    "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/fontWeight",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**fontWeight**\n\nSets font weight for this keywords text.",
+                    "default": "normal",
+                    "examples": [
+                      "100",
+                      "200",
+                      "300",
+                      "500",
+                      "600",
+                      "800",
+                      "900",
+                      "bold",
+                      "bolder",
+                      "lighter",
+                      "normal"
+                    ]
+                  },
+                  "textDecoration": {
+                    "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/textDecoration",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**textDecoration**\n\nSets the decorations of this keyword.",
+                    "default": "underline",
+                    "examples": [
+                      "underline",
+                      "underline dotted",
+                      "underline dotted red",
+                      "green wavy underline",
+                      "underline overline #FF3028"
+                    ]
+                  },
+                  "cursor": {
+                    "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/cursor",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**cursor**\n\nSets the cursor icon of this keyword.",
+                    "default": "pointer",
+                    "examples": [
+                      "help",
+                      "crosshair",
+                      "not-allowed",
+                      "zoom-in",
+                      "zoom-out",
+                      "grab",
+                      "pointer"
+                    ]
+                  },
+                  "color": {
+                    "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/color",
+                    "type": "string",
+                    "format": "color-hex",
+                    "title": "",
+                    "markdownDescription": "**color**\n\nSets the text color for this keyword.",
+                    "default": "#008080",
+                    "examples": [
+                      "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                    ]
+                  },
+                  "letterSpacing": {
+                    "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/letterSpacing",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**letterSpacing**\n\nSets the text letter spacing for this keyword.",
+                    "default": "normal",
+                    "examples": [
+                      "normal","0.2rem","1px","-1px"
+                    ]
+                  },
+                  "gutterIconPath": {
+                    "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/gutterIconPath",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**gutterIconPath**\n\nSets the _gutter icon_ for this keyword.\n\nNote: can be an absolute path.",
+                    "default": "",
+                    "examples": []
+                  },
+                  "gutterIconSize": {
+                    "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/gutterIconSize",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**gutterIconSize**\n\nSets the _gutter icon size_ for this keyword.",
+                    "default": "contain",
+                    "examples": [
+                      "contain"
+                    ]
+                  },
+                  "light": {
+                    "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/light",
+                    "type": "object",
+                    "title": "",
+                    "markdownDescription": "**light**\n\nDecorator options applied to light themes.",
+                    "default": {},
+                    "examples": [],
+                    "required": [
+                      "color"
+                    ],
+                    "properties": {
+                      "backgroundColor": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/light/properties/backgroundColor",
+                        "type": "string",
+                        "format": "color-hex",
+                        "title": "",
+                        "markdownDescription": "**backgroundColor**\n\nSets the background color for this keyword.",
+                        "default": "#FF0000",
+                        "examples": [
+                          "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                        ]
+                      },
+                      "outline": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/light/properties/outline",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**outline**\n\nSets the outline style for this keyword.",
+                        "default": "#solid",
+                        "examples": [
+                          "#solid","dashed red","0.2rem solid","thick double #00FF00","8px ridge rgba(170, 50, 220, .6)"
+                        ]
+                      },
+                      "border": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/light/properties/border",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**border**\n\nThis property is a shorthand for the following CSS properties:\n\n_border-color_\n\n_border-style_\n\n_border-width_",
+                        "default": "solid",
+                        "examples": [
+                          "solid","dashed red","0.2rem solid","thick double #00FF00"
+                        ]
+                      },
+                      "borderColor": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/light/properties/borderColor",
+                        "type": "string",
+                        "format": "color-hex",
+                        "title": "",
+                        "markdownDescription": "**borderColor**\n\nSets the border color for this keyword.",
+                        "default": "#FF0000",
+                        "examples": [
+                          "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                        ]
+                      },
+                      "borderRadius": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/light/properties/borderRadius",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**borderRadius**\n\nAdds rounded corners to this keywords background color.",
+                        "default": "5px",
+                        "examples": [
+                          "5px",
+                          "8px",
+                          "3px 8px",
+                          "3px 8px 3px 8px"
+                        ]
+                      },
+                      "borderWidth": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/light/properties/borderWidth",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**borderWidth**\n\nSets the border width of this keyword.",
+                        "default": "",
+                        "examples": [
+                          "thick",
+                          "0.2em",
+                          "0 4px 8px 12px",
+                          "2px"
+                        ]
+                      },
+                      "fontStyle": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/light/properties/fontStyle",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**fontStyle**\n\nSets font style for this keywords text.",
+                        "default": "",
+                        "examples": [
+                          "normal",
+                          "italic",
+                          "oblique"
+                        ]
+                      },
+                      "fontWeight": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/light/properties/fontWeight",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**fontWeight**\n\nSets font weight for this keywords text.",
+                        "default": "normal",
+                        "examples": [
+                          "100",
+                          "200",
+                          "300",
+                          "500",
+                          "600",
+                          "800",
+                          "900",
+                          "bold",
+                          "bolder",
+                          "lighter",
+                          "normal"
+                        ]
+                      },
+                      "textDecoration": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/light/properties/textDecoration",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**textDecoration**\n\nSets the decorations of this keyword.",
+                        "default": "underline",
+                        "examples": [
+                          "underline",
+                          "underline dotted",
+                          "underline dotted red",
+                          "green wavy underline",
+                          "underline overline #FF3028"
+                        ]
+                      },
+                      "cursor": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/light/properties/cursor",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**cursor**\n\nSets the cursor icon of this keyword.",
+                        "default": "pointer",
+                        "examples": [
+                          "help",
+                          "crosshair",
+                          "not-allowed",
+                          "zoom-in",
+                          "zoom-out",
+                          "grab",
+                          "pointer"
+                        ]
+                      },
+                      "color": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/light/properties/color",
+                        "type": "string",
+                        "format": "color-hex",
+                        "title": "",
+                        "markdownDescription": "**color**\n\nSets the text color for this keyword.",
+                        "default": "#008080",
+                        "examples": [
+                          "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                        ]
+                      },
+                      "letterSpacing": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/light/properties/letterSpacing",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**letterSpacing**\n\nSets the text letter spacing for this keyword.",
+                        "default": "normal",
+                        "examples": [
+                          "normal","0.2rem","1px","-1px"
+                        ]
+                      },
+                      "gutterIconPath": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/light/properties/gutterIconPath",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**gutterIconPath**\n\nSets the _gutter icon_ for this keyword.\n\nNote: can be an absolute path.",
+                        "default": "",
+                        "examples": []
+                      },
+                      "gutterIconSize": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/light/properties/gutterIconSize",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**gutterIconSize**\n\nSets the _gutter icon size_ for this keyword.",
+                        "default": "contain",
+                        "examples": [
+                          "contain"
+                        ]
+                      }
+                    },
+                    "additionalProperties": true
+                  },
+                  "dark": {
+                    "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/dark",
+                    "type": "object",
+                    "title": "",
+                    "markdownDescription": "**dark**\n\nDecorator options applied to dark themes.",
+                    "default": {},
+                    "examples": [],
+                    "required": [
+                      "color"
+                    ],
+                    "properties": {
+                      "backgroundColor": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/backgroundColor",
+                        "type": "string",
+                        "format": "color-hex",
+                        "title": "",
+                        "markdownDescription": "**backgroundColor**\n\nSets the background color for this keyword.",
+                        "default": "#FF0000",
+                        "examples": [
+                          "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                        ]
+                      },
+                      "outline": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/outline",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**outline**\n\nSets the outline style for this keyword.",
+                        "default": "#solid",
+                        "examples": [
+                          "#solid","dashed red","0.2rem solid","thick double #00FF00","8px ridge rgba(170, 50, 220, .6)"
+                        ]
+                      },
+                      "border": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/border",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**border**\n\nThis property is a shorthand for the following CSS properties:\n\n_border-color_\n\n_border-style_\n\n_border-width_",
+                        "default": "solid",
+                        "examples": [
+                          "solid","dashed red","0.2rem solid","thick double #00FF00"
+                        ]
+                      },
+                      "borderColor": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/borderColor",
+                        "type": "string",
+                        "format": "color-hex",
+                        "title": "",
+                        "markdownDescription": "**borderColor**\n\nSets the border color for this keyword.",
+                        "default": "#FF0000",
+                        "examples": [
+                          "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                        ]
+                      },
+                      "borderRadius": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/borderRadius",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**borderRadius**\n\nAdds rounded corners to this keywords background color.",
+                        "default": "5px",
+                        "examples": [
+                          "5px",
+                          "8px",
+                          "3px 8px",
+                          "3px 8px 3px 8px"
+                        ]
+                      },
+                      "borderWidth": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/borderWidth",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**borderWidth**\n\nSets the border width of this keyword.",
+                        "default": "",
+                        "examples": [
+                          "thick",
+                          "0.2em",
+                          "0 4px 8px 12px",
+                          "2px"
+                        ]
+                      },
+                      "fontStyle": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/fontStyle",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**fontStyle**\n\nSets font style for this keywords text.",
+                        "default": "",
+                        "examples": [
+                          "normal",
+                          "italic",
+                          "oblique"
+                        ]
+                      },
+                      "fontWeight": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/fontWeight",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**fontWeight**\n\nSets font weight for this keyword text.",
+                        "default": "normal",
+                        "examples": [
+                          "100",
+                          "200",
+                          "300",
+                          "500",
+                          "600",
+                          "800",
+                          "900",
+                          "bold",
+                          "bolder",
+                          "lighter",
+                          "normal"
+                        ]
+                      },
+                      "textDecoration": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/textDecoration",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**textDecoration**\n\nSets the decorations of this keyword.",
+                        "default": "underline",
+                        "examples": [
+                          "underline",
+                          "underline dotted",
+                          "underline dotted red",
+                          "green wavy underline",
+                          "underline overline #FF3028"
+                        ]
+                      },
+                      "cursor": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/cursor",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**cursor**\n\nSets the cursor icon of this keyword.",
+                        "default": "pointer",
+                        "examples": [
+                          "help",
+                          "crosshair",
+                          "not-allowed",
+                          "zoom-in",
+                          "zoom-out",
+                          "grab",
+                          "pointer"
+                        ]
+                      },
+                      "color": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/color",
+                        "type": "string",
+                        "format": "color-hex",
+                        "title": "",
+                        "markdownDescription": "**color**\n\nSets the text color for this keyword.",
+                        "default": "#008080",
+                        "examples": [
+                          "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                        ]
+                      },
+                      "letterSpacing": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/letterSpacing",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**letterSpacing**\n\nSets the text letter spacing for this keyword.",
+                        "default": "normal",
+                        "examples": [
+                          "normal","0.2rem","1px","-1px"
+                        ]
+                      },
+                      "gutterIconPath": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/gutterIconPath",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**gutterIconPath**\n\nSets the _gutter icon_ for this keyword.\n\nNote: can be an absolute path.",
+                        "default": "",
+                        "examples": []
+                      },
+                      "gutterIconSize": {
+                        "$id": "#/properties/tagsArrayGroupTwo/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/gutterIconSize",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**gutterIconSize**\n\nSets the _gutter icon size_ for this keyword.",
+                        "default": "contain",
+                        "examples": [
+                          "contain"
+                        ]
+                      }
+                    },
+                    "additionalProperties": true
+                  }
+                },
+                "additionalProperties": true
+              }
+            },
+            "additionalProperties": true
+          }
+        ]
+      }
+    },
+    "tagBlocksArray": {
+      "$id": "#/properties/tagBlocksArray",
+      "type": "array",
+      "title": "",
+      "markdownDescription": "**tagBlocksArray**\n\nArray of all defined tag blocks.",
+      "default": [],
+      "examples": [],
+      "additionalItems": true,
+      "items": {
+        "$id": "#/properties/tagBlocksArray/items",
+        "anyOf": [
+          {
+            "$id": "#/properties/tagBlocksArray/items/anyOf/0",
+            "type": "object",
+            "title": "",
+            "description": "anyOf Not defined.",
+            "default": {},
+            "examples": [],
+            "required": [
+              "description",
+              "startText",
+              "endText",
+              "isEnabled",
+              "decoratorOptions"
+            ],
+            "properties": {
+              "description": {
+                "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/description",
+                "type": "string",
+                "title": "",
+                "markdownDescription": "**description**\n\nBrief description of the tag block.",
+                "default": "",
+                "examples": []
+              },
+              "startText": {
+                "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/startText",
+                "type": "string",
+                "title": "",
+                "markdownDescription": "**startText**\n\nText string to identify the start of the tag block.",
+                "default": "",
+                "examples": []
+              },
+              "endText": {
+                "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/endText",
+                "type": "string",
+                "title": "",
+                "markdownDescription": "**endText**\n\nText string to identify the end of the tag block.",
+                "default": "",
+                "examples": []
+              },
+              "isEnabled": {
+                "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/isEnabled",
+                "type": "boolean",
+                "title": "",
+                "markdownDescription": "**isEnabled**\n\n_Enable_ or _Disable_ highlighting of this tag block.",
+                "default": true,
+                "examples": [
+                  true,
+                  false
+                ]
+              },
+              "decoratorOptions": {
+                "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions",
+                "type": "object",
+                "title": "",
+                "markdownDescription": "**decoratorOptions**\n\nDecorator options to apply to this tag block.",
+                "default": {},
+                "examples": [],
+                "required": [
+                  "light",
+                  "dark"
+                ],
+                "properties": {
+                  "backgroundColor": {
+                    "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/backgroundColor",
+                    "type": "string",
+                    "format": "color-hex",
+                    "title": "",
+                    "markdownDescription": "**backgroundColor**\n\nSets the background color for this tag block.",
+                    "default": "#FF0000",
+                    "examples": [
+                      "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                    ]
+                  },
+                  "outline": {
+                    "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/outline",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**outline**\n\nSets the outline style for this tag block.",
+                    "default": "#solid",
+                    "examples": [
+                      "#solid","dashed red","0.2rem solid","thick double #00FF00","8px ridge rgba(170, 50, 220, .6)"
+                    ]
+                  },
+                  "border": {
+                    "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/border",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**border**\n\nThis property is a shorthand for the following CSS properties:\n\n_border-color_\n\n_border-style_\n\n_border-width_",
+                    "default": "solid",
+                    "examples": [
+                      "solid","dashed red","0.2rem solid","thick double #00FF00"
+                    ]
+                  },
+                  "borderColor": {
+                    "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/borderColor",
+                    "type": "string",
+                    "format": "color-hex",
+                    "title": "",
+                    "markdownDescription": "**borderColor**\n\nSets the border color for this tag block.",
+                    "default": "#FF0000",
+                    "examples": [
+                      "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                    ]
+                  },
+                  "borderRadius": {
+                    "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/borderRadius",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**borderRadius**\n\nAdds rounded corners to this tag blocks background color.",
+                    "default": "5px",
+                    "examples": [
+                      "5px",
+                      "8px",
+                      "3px 8px",
+                      "3px 8px 3px 8px"
+                ]
+                  },
+                  "borderWidth": {
+                    "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/borderWidth",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**borderWidth**\n\nSets the border width of this tag block.",
+                    "default": "",
+                    "examples": [
+                      "thick",
+                      "0.2em",
+                      "0 4px 8px 12px",
+                      "2px"
+                    ]
+                  },
+                  "fontStyle": {
+                    "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/fontStyle",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**fontStyle**\n\nSets font style for this tag blocks text.",
+                    "default": "",
+                    "examples": [
+                      "normal",
+                      "italic",
+                      "oblique"
+                    ]
+                  },
+                  "fontWeight": {
+                    "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/fontWeight",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**fontWeight**\n\nSets font weight for this tag blocks text.",
+                    "default": "normal",
+                    "examples": [
+                      "100",
+                      "200",
+                      "300",
+                      "500",
+                      "600",
+                      "800",
+                      "900",
+                      "bold",
+                      "bolder",
+                      "lighter",
+                      "normal"
+                    ]
+                  },
+                  "textDecoration": {
+                    "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/textDecoration",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**textDecoration**\n\nSets the decorations of this tag block.",
+                    "default": "underline",
+                    "examples": [
+                      "underline",
+                      "underline dotted",
+                      "underline dotted red",
+                      "green wavy underline",
+                      "underline overline #FF3028"
+                    ]
+                  },
+                  "cursor": {
+                    "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/cursor",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**cursor**\n\nSets the cursor icon of this tag block.",
+                    "default": "pointer",
+                    "examples": [
+                      "help",
+                      "crosshair",
+                      "not-allowed",
+                      "zoom-in",
+                      "zoom-out",
+                      "grab",
+                      "pointer"
+                    ]
+                  },
+                  "color": {
+                    "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/color",
+                    "type": "string",
+                    "format": "color-hex",
+                    "title": "",
+                    "markdownDescription": "**color**\n\nSets the text color for this tag block.",
+                    "default": "#008080",
+                    "examples": [
+                      "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                    ]
+                  },
+                  "letterSpacing": {
+                    "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/letterSpacing",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**letterSpacing**\n\nSets the text letter spacing for this tag block.",
+                    "default": "normal",
+                    "examples": [
+                      "normal","0.2rem","1px","-1px"
+                    ]
+                  },
+                  "gutterIconPath": {
+                    "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/gutterIconPath",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**gutterIconPath**\n\nSets the _gutter icon_ for this tag block.\n\nNote: can be an absolute path.",
+                    "default": "",
+                    "examples": []
+                  },
+                  "gutterIconSize": {
+                    "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/gutterIconSize",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**gutterIconSize**\n\nSets the _gutter icon size_ for this tag block.",
+                    "default": "contain",
+                    "examples": [
+                      "contain"
+                    ]
+                  },
+                  "light": {
+                    "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/light",
+                    "type": "object",
+                    "title": "",
+                    "markdownDescription": "**light**\n\nDecorator options applied to light themes.",
+                    "default": {},
+                    "examples": [],
+                    "required": [
+                      "color"
+                    ],
+                    "properties": {
+                      "backgroundColor": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/backgroundColor",
+                        "type": "string",
+                        "format": "color-hex",
+                        "title": "",
+                        "markdownDescription": "**backgroundColor**\n\nSets the background color for this tag block.",
+                        "default": "#FF0000",
+                        "examples": [
+                          "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                        ]
+                      },
+                      "outline": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/outline",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**outline**\n\nSets the outline style for this tag block.",
+                        "default": "#solid",
+                        "examples": [
+                          "#solid","dashed red","0.2rem solid","thick double #00FF00","8px ridge rgba(170, 50, 220, .6)"
+                        ]
+                      },
+                      "border": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/border",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**border**\n\nThis property is a shorthand for the following CSS properties:\n\n_border-color_\n\n_border-style_\n\n_border-width_",
+                        "default": "solid",
+                        "examples": [
+                          "solid","dashed red","0.2rem solid","thick double #00FF00"
+                        ]
+                      },
+                      "borderColor": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/borderColor",
+                        "type": "string",
+                        "format": "color-hex",
+                        "title": "",
+                        "markdownDescription": "**borderColor**\n\nSets the border color for this tag block.",
+                        "default": "#FF0000",
+                        "examples": [
+                          "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                        ]
+                      },
+                      "borderRadius": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/borderRadius",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**borderRadius**\n\nAdds rounded corners to this tag blocks background color.",
+                        "default": "5px",
+                        "examples": [
+                          "5px",
+                          "8px",
+                          "3px 8px",
+                          "3px 8px 3px 8px"
+                        ]
+                      },
+                      "borderWidth": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/borderWidth",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**borderWidth**\n\nSets the border width of this tag block.",
+                        "default": "",
+                        "examples": [
+                          "thick",
+                          "0.2em",
+                          "0 4px 8px 12px",
+                          "2px"
+                        ]
+                      },
+                      "fontStyle": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/fontStyle",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**fontStyle**\n\nSets font style for this tag blocks text.",
+                        "default": "",
+                        "examples": [
+                          "normal",
+                          "italic",
+                          "oblique"
+                        ]
+                      },
+                      "fontWeight": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/fontWeight",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**fontWeight**\n\nSets font weight for this tag blocks text.",
+                        "default": "normal",
+                        "examples": [
+                          "100",
+                          "200",
+                          "300",
+                          "500",
+                          "600",
+                          "800",
+                          "900",
+                          "bold",
+                          "bolder",
+                          "lighter",
+                          "normal"
+                        ]
+                      },
+                      "textDecoration": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/textDecoration",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**textDecoration**\n\nSets the decorations of this tag block.",
+                        "default": "underline",
+                        "examples": [
+                          "underline",
+                          "underline dotted",
+                          "underline dotted red",
+                          "green wavy underline",
+                          "underline overline #FF3028"
+                        ]
+                      },
+                      "cursor": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/cursor",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**cursor**\n\nSets the cursor icon of this tag block.",
+                        "default": "pointer",
+                        "examples": [
+                          "help",
+                          "crosshair",
+                          "not-allowed",
+                          "zoom-in",
+                          "zoom-out",
+                          "grab",
+                          "pointer"
+                        ]
+                      },
+                      "color": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/color",
+                        "type": "string",
+                        "format": "color-hex",
+                        "title": "",
+                        "markdownDescription": "**color**\n\nSets the text color for this tag block.",
+                        "default": "#008080",
+                        "examples": [
+                          "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                        ]
+                      },
+                      "letterSpacing": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/letterSpacing",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**letterSpacing**\n\nSets the text letter spacing for this tag block.",
+                        "default": "normal",
+                        "examples": [
+                          "normal","0.2rem","1px","-1px"
+                        ]
+                      },
+                      "gutterIconPath": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/gutterIconPath",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**gutterIconPath**\n\nSets the _gutter icon_ for this tag block.\n\nNote: can be an absolute path.",
+                        "default": "",
+                        "examples": []
+                      },
+                      "gutterIconSize": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/gutterIconSize",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**gutterIconSize**\n\nSets the _gutter icon size_ for this tag block.",
+                        "default": "contain",
+                        "examples": [
+                          "contain"
+                        ]
+                      }
+                    },
+                    "additionalProperties": true
+                  },
+                  "dark": {
+                    "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/dark",
+                    "type": "object",
+                    "title": "",
+                    "markdownDescription": "**dark**\n\nDecorator options applied to dark themes.",
+                    "default": {},
+                    "examples": [],
+                    "required": [
+                      "color"
+                    ],
+                    "properties": {
+                      "backgroundColor": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/backgroundColor",
+                        "type": "string",
+                        "format": "color-hex",
+                        "title": "",
+                        "markdownDescription": "**backgroundColor**\n\nSets the background color for this tag block.",
+                        "default": "#FF0000",
+                        "examples": [
+                          "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                        ]
+                      },
+                      "outline": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/outline",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**outline**\n\nSets the outline style for this tag block.",
+                        "default": "#solid",
+                        "examples": [
+                          "#solid","dashed red","0.2rem solid","thick double #00FF00","8px ridge rgba(170, 50, 220, .6)"
+                        ]
+                      },
+                      "border": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/border",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**border**\n\nThis property is a shorthand for the following CSS properties:\n\n_border-color_\n\n_border-style_\n\n_border-width_",
+                        "default": "solid",
+                        "examples": [
+                          "solid","dashed red","0.2rem solid","thick double #00FF00"
+                        ]
+                      },
+                      "borderColor": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/borderColor",
+                        "type": "string",
+                        "format": "color-hex",
+                        "title": "",
+                        "markdownDescription": "**borderColor**\n\nSets the border color for this tag block.",
+                        "default": "#FF0000",
+                        "examples": [
+                          "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                        ]
+                      },
+                      "borderRadius": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/borderRadius",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**borderRadius**\n\nAdds rounded corners to this tag blocks background color.",
+                        "default": "5px",
+                        "examples": [
+                          "5px",
+                          "8px",
+                          "3px 8px",
+                          "3px 8px 3px 8px"
+                        ]
+                      },
+                      "borderWidth": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/borderWidth",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**borderWidth**\n\nSets the border width of this tag block.",
+                        "default": "",
+                        "examples": [
+                          "thick",
+                          "0.2em",
+                          "0 4px 8px 12px",
+                          "2px"
+                        ]
+                      },
+                      "fontStyle": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/fontStyle",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**fontStyle**\n\nSets font style for this tag blocks text.",
+                        "default": "",
+                        "examples": [
+                          "normal",
+                          "italic",
+                          "oblique"
+                        ]
+                      },
+                      "fontWeight": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/fontWeight",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**fontWeight**\n\nSets font weight for this tag blocks text.",
+                        "default": "normal",
+                        "examples": [
+                          "100",
+                          "200",
+                          "300",
+                          "500",
+                          "600",
+                          "800",
+                          "900",
+                          "bold",
+                          "bolder",
+                          "lighter",
+                          "normal"
+                        ]
+                      },
+                      "textDecoration": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/textDecoration",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**textDecoration**\n\nSets the decorations of this tag block.",
+                        "default": "underline",
+                        "examples": [
+                          "underline",
+                          "underline dotted",
+                          "underline dotted red",
+                          "green wavy underline",
+                          "underline overline #FF3028"
+                        ]
+                      },
+                      "cursor": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/cursor",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**cursor**\n\nSets the cursor icon of this tag block.",
+                        "default": "pointer",
+                        "examples": [
+                          "help",
+                          "crosshair",
+                          "not-allowed",
+                          "zoom-in",
+                          "zoom-out",
+                          "grab",
+                          "pointer"
+                        ]
+                      },
+                      "color": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/color",
+                        "type": "string",
+                        "format": "color-hex",
+                        "title": "",
+                        "markdownDescription": "**color**\n\nSets the text color for this tag block.",
+                        "default": "#008080",
+                        "examples": [
+                          "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                        ]
+                      },
+                      "letterSpacing": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/letterSpacing",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**letterSpacing**\n\nSets the text letter spacing for this tag block.",
+                        "default": "normal",
+                        "examples": [
+                          "normal","0.2rem","1px","-1px"
+                        ]
+                      },
+                      "gutterIconPath": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/gutterIconPath",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**gutterIconPath**\n\nSets the _gutter icon_ for this tag block.\n\nNote: can be an absolute path.",
+                        "default": "",
+                        "examples": []
+                      },
+                      "gutterIconSize": {
+                        "$id": "#/properties/tagBlocksArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/gutterIconSize",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**gutterIconSize**\n\nSets the _gutter icon size_ for this tag block.",
+                        "default": "contain",
+                        "examples": [
+                          "contain"
+                        ]
+                      }
+                    },
+                    "additionalProperties": true
+                  }
+                },
+                "additionalProperties": true
+              }
+            },
+            "additionalProperties": true
+          }
+        ]
+      }
+    },
+    "specialTagsArray": {
+      "$id": "#/properties/specialTagsArray",
+      "type": "array",
+      "title": "",
+      "markdownDescription": "**specialTagsArray**\n\nArray of all unique tags.",
+      "default": [],
+      "examples": [],
+      "additionalItems": false,
+      "items": {
+        "$id": "#/properties/specialTagsArray/items",
+        "anyOf": [
+          {
+            "$id": "#/properties/specialTagsArray/items/anyOf/0",
+            "type": "object",
+            "title": "",
+            "description": "anyOf Not defined.",
+            "default": {},
+            "examples": [],
+            "required": [
+              "description",
+              "isEnabled",
+              "decoratorOptions"
+            ],
+            "properties": {
+              "description": {
+                "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/description",
+                "type": "string",
+                "title": "",
+                "markdownDescription": "**description**\n\nBrief description of the special tag.",
+                "default": "",
+                "examples": [
+                  "Filelink - Used to highlight Markdown Local Project Note Files"
+                ]
+              },
+              "isEnabled": {
+                "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/isEnabled",
+                "type": "boolean",
+                "title": "",
+                "markdownDescription": "**isEnabled**\n\n_Enable_ or _Disable_ highlighting of this special tag.",
+                "default": true,
+                "examples": [
+                  true,
+                  false
+                ]
+              },
+              "decoratorOptions": {
+                "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions",
+                "type": "object",
+                "title": "",
+                "markdownDescription": "**decoratorOptions**\n\nDecorator options to apply to this special tag.",
+                "default": {},
+                "examples": [],
+                "required": [
+                  "light",
+                  "dark"
+                ],
+                "properties": {
+                  "backgroundColor": {
+                    "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/backgroundColor",
+                    "type": "string",
+                    "format": "color-hex",
+                    "title": "",
+                    "markdownDescription": "**backgroundColor**\n\nSets the background color for this special tag.",
+                    "default": "#FF0000",
+                    "examples": [
+                      "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                    ]
+                  },
+                  "outline": {
+                    "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/outline",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**outline**\n\nSets the outline style for this special tag.",
+                    "default": "#solid",
+                    "examples": [
+                      "#solid","dashed red","0.2rem solid","thick double #00FF00","8px ridge rgba(170, 50, 220, .6)"
+                    ]
+                  },
+                  "border": {
+                    "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/border",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**border**\n\nThis property is a shorthand for the following CSS properties:\n\n_border-color_\n\n_border-style_\n\n_border-width_",
+                    "default": "solid",
+                    "examples": [
+                      "solid","dashed red","0.2rem solid","thick double #00FF00"
+                    ]
+                  },
+                  "borderColor": {
+                    "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/borderColor",
+                    "type": "string",
+                    "format": "color-hex",
+                    "title": "",
+                    "markdownDescription": "**borderColor**\n\nSets the border color for this special tag.",
+                    "default": "#FF0000",
+                    "examples": [
+                      "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                    ]
+                  },
+                  "borderRadius": {
+                    "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/borderRadius",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**borderRadius**\n\nAdds rounded corners to this special tags background color.",
+                    "default": "5px",
+                    "examples": [
+                      "5px",
+                      "8px",
+                      "3px 8px",
+                      "3px 8px 3px 8px"
+                ]
+                  },
+                  "borderWidth": {
+                    "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/borderWidth",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**borderWidth**\n\nSets the border width of this special tag.",
+                    "default": "",
+                    "examples": [
+                      "thick",
+                      "0.2em",
+                      "0 4px 8px 12px",
+                      "2px"
+                    ]
+                  },
+                  "fontStyle": {
+                    "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/fontStyle",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**fontStyle**\n\nSets font style for this special tags text.",
+                    "default": "",
+                    "examples": [
+                      "normal",
+                      "italic",
+                      "oblique"
+                    ]
+                  },
+                  "fontWeight": {
+                    "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/fontWeight",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**fontWeight**\n\nSets font weight for this special tags text.",
+                    "default": "normal",
+                    "examples": [
+                      "100",
+                      "200",
+                      "300",
+                      "500",
+                      "600",
+                      "800",
+                      "900",
+                      "bold",
+                      "bolder",
+                      "lighter",
+                      "normal"
+                    ]
+                  },
+                  "textDecoration": {
+                    "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/textDecoration",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**textDecoration**\n\nSets the decorations of this special tag.",
+                    "default": "underline",
+                    "examples": [
+                      "underline",
+                      "underline dotted",
+                      "underline dotted red",
+                      "green wavy underline",
+                      "underline overline #FF3028"
+                    ]
+                  },
+                  "cursor": {
+                    "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/cursor",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**cursor**\n\nSets the cursor icon of this special tag.",
+                    "default": "pointer",
+                    "examples": [
+                      "help",
+                      "crosshair",
+                      "not-allowed",
+                      "zoom-in",
+                      "zoom-out",
+                      "grab",
+                      "pointer"
+                    ]
+                  },
+                  "color": {
+                    "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/color",
+                    "type": "string",
+                    "format": "color-hex",
+                    "title": "",
+                    "markdownDescription": "**color**\n\nSets the text color for this special tag.",
+                    "default": "#008080",
+                    "examples": [
+                      "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                    ]
+                  },
+                  "letterSpacing": {
+                    "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/letterSpacing",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**letterSpacing**\n\nSets the text letter spacing for this special tag.",
+                    "default": "normal",
+                    "examples": [
+                      "normal","0.2rem","1px","-1px"
+                    ]
+                  },
+                  "gutterIconPath": {
+                    "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/gutterIconPath",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**gutterIconPath**\n\nSets the _gutter icon_ for this special tag.\n\nNote: can be an absolute path.",
+                    "default": "",
+                    "examples": []
+                  },
+                  "gutterIconSize": {
+                    "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/gutterIconSize",
+                    "type": "string",
+                    "title": "",
+                    "markdownDescription": "**gutterIconSize**\n\nSets the _gutter icon size_ for this special tag.",
+                    "default": "contain",
+                    "examples": [
+                      "contain"
+                    ]
+                  },
+                  "light": {
+                    "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/light",
+                    "type": "object",
+                    "title": "",
+                    "markdownDescription": "**light**\n\nDecorator options applied to light themes.",
+                    "default": {},
+                    "examples": [],
+                    "required": [
+                      "color"
+                    ],
+                    "properties": {
+                      "backgroundColor": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/backgroundColor",
+                        "type": "string",
+                        "format": "color-hex",
+                        "title": "",
+                        "markdownDescription": "**backgroundColor**\n\nSets the background color for this special tag.",
+                        "default": "#FF0000",
+                        "examples": [
+                          "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                        ]
+                      },
+                      "outline": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/outline",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**outline**\n\nSets the outline style for this special tag.",
+                        "default": "#solid",
+                        "examples": [
+                          "#solid","dashed red","0.2rem solid","thick double #00FF00","8px ridge rgba(170, 50, 220, .6)"
+                        ]
+                      },
+                      "border": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/border",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**border**\n\nThis property is a shorthand for the following CSS properties:\n\n_border-color_\n\n_border-style_\n\n_border-width_",
+                        "default": "solid",
+                        "examples": [
+                          "solid","dashed red","0.2rem solid","thick double #00FF00"
+                        ]
+                      },
+                      "borderColor": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/borderColor",
+                        "type": "string",
+                        "format": "color-hex",
+                        "title": "",
+                        "markdownDescription": "**borderColor**\n\nSets the border color for this special tag.",
+                        "default": "#FF0000",
+                        "examples": [
+                          "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                        ]
+                      },
+                      "borderRadius": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/borderRadius",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**borderRadius**\n\nAdds rounded corners to this special tags background color.",
+                        "default": "5px",
+                        "examples": [
+                          "5px",
+                          "8px",
+                          "3px 8px",
+                          "3px 8px 3px 8px"
+                        ]
+                      },
+                      "borderWidth": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/borderWidth",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**borderWidth**\n\nSets the border width of this special tag.",
+                        "default": "",
+                        "examples": [
+                          "thick",
+                          "0.2em",
+                          "0 4px 8px 12px",
+                          "2px"
+                        ]
+                      },
+                      "fontStyle": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/fontStyle",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**fontStyle**\n\nSets font style for this special tags text.",
+                        "default": "",
+                        "examples": [
+                          "normal",
+                          "italic",
+                          "oblique"
+                        ]
+                      },
+                      "fontWeight": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/fontWeight",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**fontWeight**\n\nSets font weight for this special tags text.",
+                        "default": "normal",
+                        "examples": [
+                          "100",
+                          "200",
+                          "300",
+                          "500",
+                          "600",
+                          "800",
+                          "900",
+                          "bold",
+                          "bolder",
+                          "lighter",
+                          "normal"
+                        ]
+                      },
+                      "textDecoration": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/textDecoration",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**textDecoration**\n\nSets the decorations of this special tag.",
+                        "default": "underline",
+                        "examples": [
+                          "underline",
+                          "underline dotted",
+                          "underline dotted red",
+                          "green wavy underline",
+                          "underline overline #FF3028"
+                        ]
+                      },
+                      "cursor": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/cursor",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**cursor**\n\nSets the cursor icon of this special tag.",
+                        "default": "pointer",
+                        "examples": [
+                          "help",
+                          "crosshair",
+                          "not-allowed",
+                          "zoom-in",
+                          "zoom-out",
+                          "grab",
+                          "pointer"
+                        ]
+                      },
+                      "color": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/color",
+                        "type": "string",
+                        "format": "color-hex",
+                        "title": "",
+                        "markdownDescription": "**color**\n\nSets the text color for this special tag.",
+                        "default": "#008080",
+                        "examples": [
+                          "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                        ]
+                      },
+                      "letterSpacing": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/letterSpacing",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**letterSpacing**\n\nSets the text letter spacing for this special tag.",
+                        "default": "normal",
+                        "examples": [
+                          "normal","0.2rem","1px","-1px"
+                        ]
+                      },
+                      "gutterIconPath": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/gutterIconPath",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**gutterIconPath**\n\nSets the _gutter icon_ for this special tag.\n\nNote: can be an absolute path.",
+                        "default": "",
+                        "examples": []
+                      },
+                      "gutterIconSize": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/light/properties/gutterIconSize",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**gutterIconSize**\n\nSets the _gutter icon size_ for this special tag.",
+                        "default": "contain",
+                        "examples": [
+                          "contain"
+                        ]
+                      }
+                    }
+                  },
+                  "dark": {
+                    "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark",
+                    "type": "object",
+                    "title": "",
+                    "markdownDescription": "**dark**\n\nDecorator options applied to dark themes.",
+                    "default": {},
+                    "examples": [],
+                      "required": [
+                      "color"
+                    ],
+                    "properties": {
+                      "backgroundColor": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/backgroundColor",
+                        "type": "string",
+                        "format": "color-hex",
+                        "title": "",
+                        "markdownDescription": "**backgroundColor**\n\nSets the background color for this special tag.",
+                        "default": "#FF0000",
+                        "examples": [
+                          "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                        ]
+                      },
+                      "outline": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/outline",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**outline**\n\nSets the outline style for this special tag.",
+                        "default": "#solid",
+                        "examples": [
+                          "#solid","dashed red","0.2rem solid","thick double #00FF00","8px ridge rgba(170, 50, 220, .6)"
+                        ]
+                      },
+                      "border": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/border",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**border**\n\nThis property is a shorthand for the following CSS properties:\n\n_border-color_\n\n_border-style_\n\n_border-width_",
+                        "default": "solid",
+                        "examples": [
+                          "solid","dashed red","0.2rem solid","thick double #00FF00"
+                        ]
+                      },
+                      "borderColor": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/borderColor",
+                        "type": "string",
+                        "format": "color-hex",
+                        "title": "",
+                        "markdownDescription": "**borderColor**\n\nSets the border color for this special tag.",
+                        "default": "#FF0000",
+                        "examples": [
+                          "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                        ]
+                      },
+                      "borderRadius": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/borderRadius",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**borderRadius**\n\nAdds rounded corners to this special tags background color.",
+                        "default": "5px",
+                        "examples": [
+                          "5px",
+                          "8px",
+                          "3px 8px",
+                          "3px 8px 3px 8px"
+                        ]
+                      },
+                      "borderWidth": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/borderWidth",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**borderWidth**\n\nSets the border width of this special tag.",
+                        "default": "",
+                        "examples": [
+                          "thick",
+                          "0.2em",
+                          "0 4px 8px 12px",
+                          "2px"
+                        ]
+                      },
+                      "fontStyle": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/fontStyle",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**fontStyle**\n\nSets font style for this special tags text.",
+                        "default": "",
+                        "examples": [
+                          "normal",
+                          "italic",
+                          "oblique"
+                        ]
+                      },
+                      "fontWeight": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/fontWeight",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**fontWeight**\n\nSets font weight for this special tags text.",
+                        "default": "normal",
+                        "examples": [
+                          "100",
+                          "200",
+                          "300",
+                          "500",
+                          "600",
+                          "800",
+                          "900",
+                          "bold",
+                          "bolder",
+                          "lighter",
+                          "normal"
+                        ]
+                      },
+                      "textDecoration": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/textDecoration",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**textDecoration**\n\nSets the decorations of this special tag.",
+                        "default": "underline",
+                        "examples": [
+                          "underline",
+                          "underline dotted",
+                          "underline dotted red",
+                          "green wavy underline",
+                          "underline overline #FF3028"
+                        ]
+                      },
+                      "cursor": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/cursor",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**cursor**\n\nSets the cursor icon of this special tag.",
+                        "default": "pointer",
+                        "examples": [
+                          "help",
+                          "crosshair",
+                          "not-allowed",
+                          "zoom-in",
+                          "zoom-out",
+                          "grab",
+                          "pointer"
+                        ]
+                      },
+                      "color": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/color",
+                        "type": "string",
+                        "format": "color-hex",
+                        "title": "",
+                        "markdownDescription": "**color**\n\nSets the text color for this special tag.",
+                        "default": "#008080",
+                        "examples": [
+                          "#000000","#FF0000","#00FF00","#0000FF","#FFFFFF","#05100A","#008080","#RGB","#RGBA","#RRGGBB","#RRGGBBAA"
+                        ]
+                      },
+                      "letterSpacing": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/letterSpacing",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**letterSpacing**\n\nSets the text letter spacing for this special tag.",
+                        "default": "normal",
+                        "examples": [
+                          "normal","0.2rem","1px","-1px"
+                        ]
+                      },
+                      "gutterIconPath": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/gutterIconPath",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**gutterIconPath**\n\nSets the _gutter icon_ for this special tag.\n\nNote: can be an absolute path.",
+                        "default": "",
+                        "examples": []
+                      },
+                      "gutterIconSize": {
+                        "$id": "#/properties/specialTagsArray/items/anyOf/0/properties/decoratorOptions/properties/dark/properties/gutterIconSize",
+                        "type": "string",
+                        "title": "",
+                        "markdownDescription": "**gutterIconSize**\n\nSets the _gutter icon size_ for this special tag.",
+                        "default": "contain",
+                        "examples": [
+                          "contain"
+                        ]
+                      }
+                    },
+                    "additionalProperties": true
+                  }
+                },
+                "additionalProperties": true
+              }
+            },
+            "additionalProperties": true
+          }
+        ]
+      }
+    },
+    "extensions": {
+      "$id": "#/properties/extensions",
+      "type": "array",
+      "title": "",
+      "markdownDescription": "**extensions**\n\nArray of all supported file extensions to highlight.",
+      "default": [],
+      "examples": [],
+      "additionalItems": true,
+      "items": {
+        "$id": "#/properties/extensions/items",
+        "anyOf": [
+          {
+            "$id": "#/properties/extensions/items/anyOf/0",
+            "type": "object",
+            "title": "",
+            "markdownDescription": "anyOf Not defined.",
+            "default": {},
+            "examples": [],
+            "required": [
+              "description",
+              "ext",
+              "commentsRegEx"
+            ],
+            "properties": {
+              "description": {
+                "$id": "#/properties/extensions/items/anyOf/0/properties/description",
+                "type": "string",
+                "title": "",
+                "markdownDescription": "**description**\n\nDescription of the comments Regular Expression.",
+                "default": "",
+                "examples": []
+              },
+              "ext": {
+                "$id": "#/properties/extensions/items/anyOf/0/properties/ext",
+                "type": "array",
+                "title": "",
+                "markdownDescription": "**ext**\n\nArray of extensions that use this comment definition.",
+                "default": [],
+                "examples": [],
+                "additionalItems": true,
+                "items": {
+                  "$id": "#/properties/extensions/items/anyOf/0/properties/ext/items",
+                  "anyOf": [
+                    {
+                      "$id": "#/properties/extensions/items/anyOf/0/properties/ext/items/anyOf/0",
+                      "type": "string",
+                      "title": "",
+                      "markdownDescription": "File extension that support this comments regular expression.",
+                      "default": "",
+                      "examples": []
+                    }
+                  ]
+                }
+              },
+              "commentsRegEx": {
+                "$id": "#/properties/extensions/items/anyOf/0/properties/commentsRegEx",
+                "type": "string",
+                "title": "",
+                "markdownDescription": "**commentsRegEx**\n\nRegular Expression used to search for comments (escaped backslash required).",
+                "default": "",
+                "examples": []
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "Main Title Tag": {
+      "prefix": "tagMainTitle",
+      "body": [
+        " ● ${1:Main Title Text} ● $0"
+      ],
+      "description": "Main Title Tag"
+    },
+  "Sub Title Tag": {
+      "prefix": "tagSubTitle",
+      "body": [
+        " • ${1:Sub Title Text} • $0"
+      ],
+      "description": "Sub-Title Tag"
+  },
+  "Hidden Title Tag": {
+      "prefix": "tagHiddenTitle",
+      "body": [
+        " ${1:Hidden Title Text} $0"
+      ],
+      "description": "Hidden Title Tag"
+  },
+  "Underline Tag": {
+      "prefix": "tagUnderline",
+      "body": [
+        "₋${1:Underline Text}₋$0"
+      ],
+      "description": "Underline Tag"
+  },
+  "Strikethrough Tag": {
+      "prefix": "tagStrikethrough",
+      "body": [
+        "╶${1:Strikethrough Text}╴$0"
+      ],
+      "description": "Strikethrough Tag"
+  },
+  "Tag Keyword": {
+    "prefix": "tagKeyword",
+    "body": [
+		"${1|TODO: ,BUG: ,CHANGED: ,DEBUG: ,FIXME: ,HACK: ,IDEA: ,NOTE: ,OPTIMIZE: ,RESEARCH: ,REVIEW: ,TEMP: |}"
+	],
+    "description": "Tag Keyword"
+  },
+  "Hidden Title Comment": {
+    "prefix": "commentHiddenTitle",
+    "body": [
+      "$LINE_COMMENT ${1:Hidden Title Text} $0"
+    ],
+    "description": "Hidden Title Comment"
+  },
+  "Comment Keyword": {
+    "prefix": "commentKeyword",
+    "body": [
+      "$LINE_COMMENT ${1|TODO: ,BUG: ,CHANGED: ,DEBUG: ,FIXME: ,HACK: ,IDEA: ,NOTE: ,OPTIMIZE: ,RESEARCH: ,REVIEW: ,TEMP: |}"
+    ],
+    "description": "Tag Keyword"
+  },
+  "Function Box Single Line": {
+    "prefix": "commentBoxSingleLine",
+    "body": [
+      "$LINE_COMMENT  ╭──────────────────────────────────────────────────────────────────────────────╮",
+      "$LINE_COMMENT  │                          ● ${1|Function,Class,Method,Procedure,Subroutine,Routine,Operation,Subprogram|} ${2:NAME} ●                                   │",
+      "$LINE_COMMENT  │                                                                              │",
+      "$LINE_COMMENT  │                           • ${3:DESCRIPTION} •                                    │",
+      "$LINE_COMMENT  ╰──────────────────────────────────────────────────────────────────────────────╯",
+      "$0"
+    ],
+    "description": "Function Box Single Line"
+  },
+  "Function Box Double Line": {
+    "prefix": "commentBoxDblLine",
+    "body": [
+      "$LINE_COMMENT  ╔══════════════════════════════════════════════════════════════════════════════╗",
+      "$LINE_COMMENT  ║                          ● ${1|Function,Class,Method,Procedure,Subroutine,Routine,Operation,Subprogram|} ${2:NAME} ●                                   ║",
+      "$LINE_COMMENT  ║                                                                              ║",
+      "$LINE_COMMENT  ║                           • ${3:DESCRIPTION} •                                    ║",
+      "$LINE_COMMENT  ╚══════════════════════════════════════════════════════════════════════════════╝",
+      "$0"
+    ],
+    "description": "Function Box Double Line"
+  }
+}

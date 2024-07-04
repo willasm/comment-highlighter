@@ -1,0 +1,299 @@
+{
+  "name": "comment-highlighter",
+  "displayName": "Comment Highlighter",
+  "description": "Colorful Comment Highlighter for Visual Studio Code",
+  "version": "2.0.0",
+  "author": {
+    "name": "William McKeever",
+    "email": "willmck63@gmail.com"
+  },
+  "publisher": "willasm",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.1"
+  },
+  "main": "src/extension.js",
+  "icon": "images/icon.png",
+  "keywords": [
+    "BUG",
+    "CHANGED",
+    "DEBUG",
+    "FIXME",
+    "HACK",
+    "IDEA",
+    "NOTE",
+    "OPTIMIZE",
+    "RESEARCH",
+    "REVIEW",
+    "TEMP",
+    "TODO",
+    "comments",
+    "highlighter",
+    "color",
+    "colorful",
+    "keywords",
+    "tags"
+  ],
+  "categories": [
+    "Snippets",
+    "Formatters",
+    "Other",
+    "Visualization"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "colors": [
+      {
+        "id": "chTreeItem.filenameTextColor",
+        "description": "Color for a Filename TreeItem Label",
+        "defaults": {
+          "light": "#17261e",
+          "dark": "#d8ffea",
+          "highContrast": "errorForeground"
+        }
+      },
+      {
+        "id": "chTreeItem.bugTextColor",
+        "description": "Color for Keyword BUG",
+        "defaults": {
+          "light": "#fe523b",
+          "dark": "#fe523b",
+          "highContrast": "errorForeground"
+        }
+      },
+      {
+        "id": "chTreeItem.changedTextColor",
+        "description": "Color for Keyword CHANGED",
+        "defaults": {
+          "light": "#c5952d",
+          "dark": "#c5952d",
+          "highContrast": "errorForeground"
+        }
+      },
+      {
+        "id": "chTreeItem.debugTextColor",
+        "description": "Color for Keyword DEBUG",
+        "defaults": {
+          "light": "#ee6b6b",
+          "dark": "#ee6b6b",
+          "highContrast": "errorForeground"
+        }
+      },
+      {
+        "id": "chTreeItem.fixmeTextColor",
+        "description": "Color for Keyword FIXME",
+        "defaults": {
+          "light": "#ff7f30",
+          "dark": "#ff7f30",
+          "highContrast": "errorForeground"
+        }
+      },
+      {
+        "id": "chTreeItem.hackTextColor",
+        "description": "Color for Keyword HACK",
+        "defaults": {
+          "light": "#9f4bff",
+          "dark": "#de83fa",
+          "highContrast": "errorForeground"
+        }
+      },
+      {
+        "id": "chTreeItem.ideaTextColor",
+        "description": "Color for Keyword IDEA",
+        "defaults": {
+          "light": "#ba9e1e",
+          "dark": "#f0cc2e",
+          "highContrast": "errorForeground"
+        }
+      },
+      {
+        "id": "chTreeItem.noteTextColor",
+        "description": "Color for Keyword NOTE",
+        "defaults": {
+          "light": "#00504a",
+          "dark": "#f5e3ff",
+          "highContrast": "errorForeground"
+        }
+      },
+      {
+        "id": "chTreeItem.optimizeTextColor",
+        "description": "Color for Keyword OPTIMIZE",
+        "defaults": {
+          "light": "#1b996b",
+          "dark": "#a6ffdd",
+          "highContrast": "errorForeground"
+        }
+      },
+      {
+        "id": "chTreeItem.researchTextColor",
+        "description": "Color for Keyword RESEARCH",
+        "defaults": {
+          "light": "#3596aa",
+          "dark": "#94e1f1",
+          "highContrast": "errorForeground"
+        }
+      },
+      {
+        "id": "chTreeItem.reviewTextColor",
+        "description": "Color for Keyword REVIEW",
+        "defaults": {
+          "light": "#3a6b7d",
+          "dark": "#40bdee",
+          "highContrast": "errorForeground"
+        }
+      },
+      {
+        "id": "chTreeItem.tempTextColor",
+        "description": "Color for Keyword TEMP",
+        "defaults": {
+          "light": "#01663a",
+          "dark": "#00a693",
+          "highContrast": "errorForeground"
+        }
+      },
+      {
+        "id": "chTreeItem.todoTextColor",
+        "description": "Color for Keyword TODO",
+        "defaults": {
+          "light": "#805844",
+          "dark": "#c9ffe5",
+          "highContrast": "errorForeground"
+        }
+      },
+      {
+        "id": "chTreeItem.userTagTextColor",
+        "description": "Color for New User Keywords",
+        "defaults": {
+          "light": "#0a1a38",
+          "dark": "#9fc0ff",
+          "highContrast": "errorForeground"
+        }
+      }
+    ],
+    "commands": [
+      {
+        "command": "comment-highlighter.gotoLine",
+        "title": "Goto Line for Treeview"
+      },
+      {
+        "command": "comment-highlighter.refresh",
+        "title": "Refresh Treeview",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "comment-highlighter.edit-settings-file",
+        "title": "Comment Highlighter: Edit Tags Settings File"
+      },
+      {
+        "command": "comment-highlighter.tree-edit-settings-file",
+        "title": "Edit Tags Settings File",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "comment-highlighter.restore-settings-file",
+        "title": "Comment Highlighter: Restore Tag Settings File"
+      }
+    ],
+    "viewsWelcome": [
+      {
+        "view": "commentHighlighterTreeview",
+        "contents": "No keyword tags found\n[Edit Settings File](command:comment-highlighter.edit-settings-file)"
+      }
+    ],
+    "viewsContainers": {
+      "panel": [
+        {
+          "id": "comment-highlighter-container",
+          "title": "Comment Highlighter",
+          "icon": "images/project-notes.svg"
+        }
+      ]
+    },
+    "views": {
+      "comment-highlighter-container": [
+        {
+          "id": "commentHighlighterTreeview",
+          "name": "Comment Highlighter"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "comment-highlighter.tree-edit-settings-file",
+          "when": "view == commentHighlighterTreeview",
+          "group": "navigation",
+          "title": "Edit Tags Settings File"
+        },
+        {
+          "command": "comment-highlighter.refresh",
+          "when": "view == commentHighlighterTreeview",
+          "group": "navigation"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "comment-highlighter.edit-settings-file"
+        },
+        {
+          "command": "comment-highlighter.tree-edit-settings-file",
+          "when": "false"
+        },
+        {
+          "command": "comment-highlighter.restore-settings-file"
+        }
+      ]
+    },
+    "configuration": {
+        "title": "Comment Highlighter",
+				"type": "object",
+				"properties": {
+					"comment-highlighter.filesToExclude": {
+						"type": "array",
+            "order": 0,
+						"default": [
+              "CHANGELOG.md",
+              "RELEASE.md"
+            ],
+            "items": {
+              "type": "string"
+            },
+						"description": "Files to exclude from Comment Highlighter"
+					},
+					"comment-highlighter.foldersToExclude": {
+            "type": "array",
+            "order": 1,
+						"default": [
+              "node_modules"
+            ],
+            "items": {
+              "type": "string"
+            },
+						"description": "Folders to exclude from Comment Highlighter"
+					}
+				}
+			},
+    "jsonValidation": [
+      {
+        "fileMatch": "tag-settings.json",
+        "url": "./src/tagSettings-schema.json"
+      }
+    ],
+    "snippets": [
+      {
+        "path": "./src/snippets.json.code-snippets"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willasm/comment-highlighter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/willasm/comment-highlighter/issues",
+    "email": "willmck63@gmail.com"
+  },
+  "homepage": "https://github.com/willasm/comment-highlighter#readme"
+}
