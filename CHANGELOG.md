@@ -2,6 +2,10 @@
 
 <!-- ## [v-inc] ${YEAR4}-${MONTHNUMBER}-${DATE} -->
 
+## [2.1.0] 2025-08-28
+### Fixed
+- Disabled keywords were not removed from treeview
+
 ## [2.0.0] 2024-07-04
 - Initial release of this new updated version
 - This version is Not Compatible with the old version `Project Notes + TODO Highlighter`, please remove it if it is installed

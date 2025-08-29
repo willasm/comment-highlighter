@@ -11,8 +11,8 @@ class DataProvider {
     this.extInclude = extInclude;
     this.filesToExclude = filesToExclude;
     this.foldersToExclude = foldersToExclude;
-    this._onDidChangeTreeData = new vscode.EventEmitter();
-    this.onDidChangeTreeData = this._onDidChangeTreeData.event;
+    //this._onDidChangeTreeData = new vscode.EventEmitter();
+    //this.onDidChangeTreeData = this._onDidChangeTreeData.event;
     vscode.workspace.onDidCreateFiles(() => this.onCreateFiles());
     vscode.workspace.onDidDeleteFiles(() => this.onDeleteFiles());
     vscode.workspace.onDidRenameFiles(() => this.onRenameFiles());
@@ -21,16 +21,19 @@ class DataProvider {
     new CountDecorationProvider();
 
   };
+  _onDidChangeTreeData = new vscode.EventEmitter();
+  onDidChangeTreeData = this._onDidChangeTreeData.event;
+
 
   getTreeItem(element) {
     // NOTE: Just need to return the tree item here.
+    //console.log("📢element: ", element);
     return element;
   };
 
   getChildren(element) {
     if (element) {
       // NOTE: Return the tree items children here 'element.children'
-      //console.log('### GETCHILDREN element.children:', element.children);
       return element.children;
     } else {
       // NOTE: Return an array of the entire Treeviews items
@@ -46,7 +49,7 @@ class DataProvider {
   refresh() {
     //console.log("Refreshed.....");
     this._onDidChangeTreeData.fire(undefined);
-    
+    //this._onDidChangeTreeData.fire();
   };
 
   onCreateFiles() {
@@ -102,13 +105,12 @@ class DataProvider {
               dataItemsChild = this.getChildArray(fsPath, uri, this.tagFileJsonData).then(function(results){
                 if (results[0] != undefined) {
                   dataList.push({
-                    fileName: file.name,
-                    fsPath: fsPath,
-                    uri: uri,
-                    children: results//dataItemsChild
+                  fileName: file.name,
+                  fsPath: fsPath,
+                  uri: uri,
+                  children: results//dataItemsChild
                   });
                 };
-                //console.log('$$$ dataList:', dataList);
               });
             };
           };
@@ -165,13 +167,13 @@ class DataProvider {
       let arr = tagFileJsonData.extensions[i].ext;
       const extMatch = arr.some((e) => {
       return e === currentFileExt;
-      });
+    });
 
-      // getChildArray - If extension supported then set comment's RegEx 
-      if (extMatch) {
-        commentString = tagFileJsonData.extensions[i].commentsRegEx;
-        commentsRegEx = new RegExp(commentString,'gmi')
-      };
+    // getChildArray - If extension supported then set comment's RegEx 
+    if (extMatch) {
+      commentString = tagFileJsonData.extensions[i].commentsRegEx;
+      commentsRegEx = new RegExp(commentString,'gmi')
+    };
       i ++;
     });
     if (commentsRegEx === "") {
@@ -195,30 +197,31 @@ class DataProvider {
       let keyword = element.keyword
       let keywordRegex = new RegExp('\\b'+keyword+'\\b:\\s+.*[^\\*/|\\n|###|\\-\\-\\>]', 'gi');
       while (commentMatch = commentsRegEx.exec(text)) {
-        // Skip strings noi in comments 
+        // Skip strings not in comments 
         let inString = commentInString.exec(commentMatch);
         if (inString !== null) {
-          commentsRegEx.lastIndex = commentMatch.index + 3
+          commentsRegEx.lastIndex = commentMatch.index + 3;
           continue;
-          }
-          while (keywordMatch = keywordRegex.exec(commentMatch[0])) {
+        };
+        while (keywordMatch = keywordRegex.exec(commentMatch[0])) {
           let startPosition = commentMatch.index + keywordMatch.index;
           for (let keywordIndex = 1; keywordIndex < 5; keywordIndex++) {
             // Default to entire comment in case no match found 
             let keywordString = commentMatch[0];
             if (commentMatch[keywordIndex] != undefined) {
-              keywordString = keywordMatch[0];//commentMatch[keywordIndex];
-              //console.log('keywordONE:', keyword);
-              let lineCol = this.getLineColNumbers(text, startPosition);
-              let lineNumber = lineCol[0]
-              let columnNumber = lineCol[1];
-              let childData = new ChildItem(keyword,keywordString,lineNumber,columnNumber,uri,fsPath);
-              treeItemsChildrenArray.push(childData);
-              break;
-            }
+              if (element.isEnabled) {
+                keywordString = keywordMatch[0];//commentMatch[keywordIndex];
+                let lineCol = this.getLineColNumbers(text, startPosition);
+                let lineNumber = lineCol[0]
+                let columnNumber = lineCol[1];
+                let childData = new ChildItem(keyword,keywordString,lineNumber,columnNumber,uri,fsPath);
+                treeItemsChildrenArray.push(childData);
+                break;
+              };
+            };
           };
         };
-      }
+      };
       index ++;
     });
 
@@ -233,24 +236,26 @@ class DataProvider {
         if (inString !== null) {
           commentsRegEx.lastIndex = commentMatch.index + 3
           continue;
-          }
-          while (keywordMatch = keywordRegex.exec(commentMatch[0])) {
+        }
+        while (keywordMatch = keywordRegex.exec(commentMatch[0])) {
           let startPosition = commentMatch.index + keywordMatch.index;
           for (let keywordIndex = 1; keywordIndex < 15; keywordIndex++) {
             // Default to entire comment in case no match found 
             let keywordString = commentMatch[0];
             if (commentMatch[keywordIndex] != undefined) {
-              keywordString = keywordMatch[0];
-              let lineCol = this.getLineColNumbers(text, startPosition);
-              let lineNumber = lineCol[0]
-              let columnNumber = lineCol[1];
-              let childData = new ChildItem(keyword,keywordString,lineNumber,columnNumber,uri,fsPath);
-              treeItemsChildrenArray.push(childData);
-              break;
-            }
+              if (element.isEnabled) {
+                keywordString = keywordMatch[0];
+                let lineCol = this.getLineColNumbers(text, startPosition);
+                let lineNumber = lineCol[0]
+                let columnNumber = lineCol[1];
+                let childData = new ChildItem(keyword,keywordString,lineNumber,columnNumber,uri,fsPath);
+                treeItemsChildrenArray.push(childData);
+                break;
+              };
+            };
           };
         };
-      }
+      };
       idx ++;
     });
     return treeItemsChildrenArray;
@@ -487,8 +492,6 @@ class ChildItem {
 
   constructor (keyword,keywordStr,row, col, uri, fsPath) {
     this.label = keywordStr;
-    //console.log('keyword:', keyword);
-    //console.log('keywordStr:', keywordStr);
     this.collapsibleState = vscode.TreeItemCollapsibleState.None;
     this.command = {
       "command": "comment-highlighter.gotoLine",

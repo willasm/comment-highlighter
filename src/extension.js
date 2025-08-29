@@ -32,7 +32,7 @@ async function activate(context) {
   
   // Activate - Load Tag Settings 
   let tagFileData = await readFile(tagSettingsFile, 'utf-8');         // Read file into memory
-  const tagFileJsonData = JSON.parse(tagFileData);                    // Parse the tag settings json file
+  let tagFileJsonData = JSON.parse(tagFileData);                    // Parse the tag settings json file
 
   // Activate - Save Array of All Extensions 
   let allExtensions = [];
@@ -64,6 +64,7 @@ async function activate(context) {
   context.subscriptions.push(editTagSettingsFile);
   context.subscriptions.push(restoreTagSettingsFile);
   context.subscriptions.push(gotoLine);
+  //context.subscriptions.push(view);
 
   // Activate - Get active editor 
   let activeEditor = vscode.window.activeTextEditor;
@@ -147,76 +148,77 @@ function updateDecorations() {
     text = text.concat(' \n');
   };
 
-  // updateDecorations - Tags Decorations Whole Word 
+  // updateDecorations - Tags Decorations Whole Word Group 1 
   let decorationOptionsArray = [];
   tagFileJsonData.tagsArrayGroupOne.forEach(element => {
-      let decorationOptions = vscode.DecorationOptions = [];
-      decorationOptionsArray.push(decorationOptions);
+    let decorationOptions = vscode.DecorationOptions = [];
+    decorationOptionsArray.push(decorationOptions);
   });
 
-  // updateDecorations - Tags Decorations Whole Line 
+  // updateDecorations - Tags Decorations Whole Line Group 2 
   tagFileJsonData.tagsArrayGroupTwo.forEach(element => {
-      let decorationOptions = vscode.DecorationOptions = [];
-      decorationOptionsArray.push(decorationOptions);
+    let decorationOptions = vscode.DecorationOptions = [];
+    decorationOptionsArray.push(decorationOptions);
   });
 
   // updateDecorations - Tag Block Decorations 
   tagFileJsonData.tagBlocksArray.forEach(element => {
-      let decorationOptions = vscode.DecorationOptions = [];
-      decorationOptionsArray.push(decorationOptions);
+    let decorationOptions = vscode.DecorationOptions = [];
+    decorationOptionsArray.push(decorationOptions);
   });
 
   // updateDecorations - Special Tags Decorations 
   tagFileJsonData.specialTagsArray.forEach(element => {
-      let decorationOptions = vscode.DecorationOptions = [];
-      decorationOptionsArray.push(decorationOptions);
+    let decorationOptions = vscode.DecorationOptions = [];
+    decorationOptionsArray.push(decorationOptions);
   });
 
-  // updateDecorations - Pre-defined Tags Words Only 
+  // updateDecorations - Pre-defined Tags Words Only Group 1 
   let index = 0;
   tagFileJsonData.tagsArrayGroupOne.forEach(element => {
-    let keyword = element.keyword
-    let keywordRegex = new RegExp('\\b'+keyword+'\\b:', 'gi');
-    while (commentMatch = commentsRegEx.exec(text)) {
-      // Skip comments in strings 
-      let inString = commentInString.exec(commentMatch);
-      if (inString !== null) {
-        commentsRegEx.lastIndex = commentMatch.index + 3
-        continue;
-      };
-      while (keywordMatch = keywordRegex.exec(commentMatch[0])) {
-        let startPosition = commentMatch.index + keywordMatch.index;
-        let endPosition = startPosition + keywordMatch[0].length;
-        let endPositionHover = text.indexOf('\n',endPosition);
-        endPositionHover--;
-        let hoverTextStr = text.substring(startPosition,endPositionHover);
-        if (hoverTextStr.endsWith('*/')) {
-          hoverTextStr = hoverTextStr.slice(0,hoverTextStr.length-2);
+      let keyword = element.keyword
+      let keywordRegex = new RegExp('\\b'+keyword+'\\b:', 'gi');
+      while (commentMatch = commentsRegEx.exec(text)) {
+        // Skip comments in strings 
+        let inString = commentInString.exec(commentMatch);
+        if (inString !== null) {
+          commentsRegEx.lastIndex = commentMatch.index + 3
+          continue;
         };
-        if (hoverTextStr.endsWith('-->')) {
-          hoverTextStr = hoverTextStr.slice(0,hoverTextStr.length-3);
-        };
-        for (let hoverTextIndex = 1; hoverTextIndex < 5; hoverTextIndex++) {
-          // Default to entire comment in case no match found 
-          hoverText = commentMatch[0];
-          if (commentMatch[hoverTextIndex] != undefined) {
-            hoverText = hoverTextStr;
-            break;
+        while (keywordMatch = keywordRegex.exec(commentMatch[0])) {
+          let startPosition = commentMatch.index + keywordMatch.index;
+          let endPosition = startPosition + keywordMatch[0].length;
+          let endPositionHover = text.indexOf('\n',endPosition);
+          endPositionHover--;
+          let hoverTextStr = text.substring(startPosition,endPositionHover);
+          if (hoverTextStr.endsWith('*/')) {
+            hoverTextStr = hoverTextStr.slice(0,hoverTextStr.length-2);
           };
-        };
-        let rangeStart = activeEditor.document.positionAt(startPosition);
-        let rangeEnd = activeEditor.document.positionAt(endPosition);
-        const decoration = { range: new vscode.Range(rangeStart, rangeEnd), hoverMessage: hoverText };
-        decorationOptionsArray[index].push(decoration);
-      }
-    };
-    if (element.isEnabled) {
-      activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
-    };
+          if (hoverTextStr.endsWith('-->')) {
+            hoverTextStr = hoverTextStr.slice(0,hoverTextStr.length-3);
+          };
+          for (let hoverTextIndex = 1; hoverTextIndex < 5; hoverTextIndex++) {
+            // Default to entire comment in case no match found 
+            hoverText = commentMatch[0];
+            if (commentMatch[hoverTextIndex] != undefined) {
+              hoverText = hoverTextStr;
+              break;
+            };
+          };
+          let rangeStart = activeEditor.document.positionAt(startPosition);
+          let rangeEnd = activeEditor.document.positionAt(endPosition);
+          const decoration = { range: new vscode.Range(rangeStart, rangeEnd), hoverMessage: hoverText };
+          decorationOptionsArray[index].push(decoration);
+        }
+      };
+      if (element.isEnabled) {
+        activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
+      };
+//    };
     index ++;
   });
 
-  // updateDecorations - Pre-defined Tags Whole Line 
+  // updateDecorations - Pre-defined Tags Whole Line Group 2 
   tagFileJsonData.tagsArrayGroupTwo.forEach(element => {
     let keyword = element.keyword
     let keywordRegex = new RegExp('\\b'+keyword+'\\b[^:](.*)[^/]', 'gi');
@@ -535,9 +537,12 @@ function triggerUpdateDecorations(throttle = false) {
   };
   }, null, context.subscriptions);
 
-  vscode.workspace.onDidSaveTextDocument((TextDocument) => {
+  vscode.workspace.onDidSaveTextDocument(async (TextDocument) => {
   if (activeEditor && TextDocument.fileName === tagSettingsFile) {
-    promptUserForRestart();
+    tagFileData = await readFile(tagSettingsFile, 'utf-8');         // Read file into memory
+    tagFileJsonData = await JSON.parse(tagFileData);                // Parse the tag settings json file
+    myData.tagFileJsonData = tagFileJsonData;
+    triggerUpdateDecorations(true);
   };
   }, null, context.subscriptions);
 
@@ -551,7 +556,6 @@ function triggerUpdateDecorations(throttle = false) {
 //  ╰──────────────────────────────────────────────────────────────────────────────╯
 async function gotoLine(item,line,col) {
 
-  //console.log("item:",item);
   let pos = new vscode.Position(line,col);
   await vscode.window.showTextDocument(
     vscode.Uri.file(item), 

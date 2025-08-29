@@ -2,7 +2,7 @@
   "name": "comment-highlighter",
   "displayName": "Comment Highlighter",
   "description": "Colorful Comment Highlighter for Visual Studio Code",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "author": {
     "name": "William McKeever",
     "email": "willmck63@gmail.com"
@@ -215,7 +215,8 @@
       "comment-highlighter-container": [
         {
           "id": "commentHighlighterTreeview",
-          "name": "Comment Highlighter"
+          "name": "Comment Highlighter",
+          "icon": "images/comment-highlighter.svg"
         }
       ]
     },
