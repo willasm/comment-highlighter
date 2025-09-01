@@ -2,6 +2,11 @@
 
 <!-- ## [v-inc] ${YEAR4}-${MONTHNUMBER}-${DATE} -->
 
+## [2.1.1] 2025-09-01
+### Changed
+- Extended Global and Local note filename links to include characters `! @ # $ . space ( ) [ ] { } - +`
+  - For use with my [Project Notes extension](https://github.com/willasm/pnotes)
+
 ## [2.1.0] 2025-08-28
 ### Fixed
 - Disabled keywords were not removed from treeview

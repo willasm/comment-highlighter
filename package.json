@@ -2,7 +2,7 @@
   "name": "comment-highlighter",
   "displayName": "Comment Highlighter",
   "description": "Colorful Comment Highlighter for Visual Studio Code",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "author": {
     "name": "William McKeever",
     "email": "willmck63@gmail.com"
@@ -248,34 +248,34 @@
       ]
     },
     "configuration": {
-        "title": "Comment Highlighter",
-				"type": "object",
-				"properties": {
-					"comment-highlighter.filesToExclude": {
-						"type": "array",
-            "order": 0,
-						"default": [
-              "CHANGELOG.md",
-              "RELEASE.md"
-            ],
-            "items": {
-              "type": "string"
-            },
-						"description": "Files to exclude from Comment Highlighter"
-					},
-					"comment-highlighter.foldersToExclude": {
-            "type": "array",
-            "order": 1,
-						"default": [
-              "node_modules"
-            ],
-            "items": {
-              "type": "string"
-            },
-						"description": "Folders to exclude from Comment Highlighter"
-					}
-				}
-			},
+      "title": "Comment Highlighter",
+      "type": "object",
+      "properties": {
+        "comment-highlighter.filesToExclude": {
+          "type": "array",
+          "order": 0,
+          "default": [
+            "CHANGELOG.md",
+            "RELEASE.md"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "description": "Files to exclude from Comment Highlighter"
+        },
+        "comment-highlighter.foldersToExclude": {
+          "type": "array",
+          "order": 1,
+          "default": [
+            "node_modules"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "description": "Folders to exclude from Comment Highlighter"
+        }
+      }
+    },
     "jsonValidation": [
       {
         "fileMatch": "tag-settings.json",

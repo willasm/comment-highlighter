@@ -24,12 +24,12 @@ async function activate(context) {
   // Activate - Initialize Extension 
   //--------------------------------------------------------------------------------
   myContext = context;                    // Save context
- 
+
   // Activate - Initialize Tag Settings 
   tagSettingsPath = context.globalStorageUri.fsPath;                  // Get Global Storage Path
   tagSettingsFile = tagSettingsPath + path.sep + 'tag-settings.json'; // Tag settings json file
   await initTagSettingsFilePath();                                    // Initialize global storage path and tag settings file
-  
+
   // Activate - Load Tag Settings 
   let tagFileData = await readFile(tagSettingsFile, 'utf-8');         // Read file into memory
   let tagFileJsonData = JSON.parse(tagFileData);                    // Parse the tag settings json file
@@ -46,9 +46,9 @@ async function activate(context) {
   getExtension();
 
   // Activate - Create Treeview Data Provider 
-  let extInclude = allExtensions        // allExtensions from above
+  let extInclude = allExtensions;        // allExtensions from above
   let myData = new DataProvider(context, extInclude, filesToExclude, foldersToExclude, tagFileJsonData);
-  
+
   // Activate - Create Treeview 
   let view = vscode.window.createTreeView("commentHighlighterTreeview", {
     treeDataProvider: myData,
@@ -88,114 +88,114 @@ async function activate(context) {
   tagFileJsonData.tagBlocksArray.forEach(element => {
     let decorationType = vscode.window.createTextEditorDecorationType(element.decoratorOptions);
     decorationTypes.push(decorationType);
-  });  
-  
+  });
+
   // Activate - Special Tag Types Objects 
   tagFileJsonData.specialTagsArray.forEach(element => {
-      let decorationType = vscode.window.createTextEditorDecorationType(element.decoratorOptions);
-      decorationTypes.push(decorationType);
+    let decorationType = vscode.window.createTextEditorDecorationType(element.decoratorOptions);
+    decorationTypes.push(decorationType);
   });
 
-//  ╭──────────────────────────────────────────────────────────────────────────────╮
-//  │                        ● Function updateDecorations ●                        │
-//  │                                                                              │
-//  │                          • Update Our Decorations •                          │
-//  ╰──────────────────────────────────────────────────────────────────────────────╯
-function updateDecorations() {
-  // updateDecorations - If no active editor then return 
-  if (!activeEditor) {
-    return;
-  };
-  
-  // updateDecorations - If no file extension found then return 
-  if (currentFileExt === "") {
-    return;
-  };
-
-  // updateDecorations - Clear previous comment Regex definition 
-  commentsRegEx = "";
-
-  // updateDecorations - Get comment symbols and set comments RegEx 
-  let i = 0;
-  tagFileJsonData.extensions.forEach(e => {
-    let arr = tagFileJsonData.extensions[i].ext;
-    const extMatch = arr.some((e) => {
-        return e === currentFileExt;
-    });
-    // updateDecorations - If extension supported then set comment's RegEx 
-    if (extMatch) {
-      commentString = tagFileJsonData.extensions[i].commentsRegEx;
-      commentsRegEx = new RegExp(commentString,'gmi')
+  //  ╭──────────────────────────────────────────────────────────────────────────────╮
+  //  │                        ● Function updateDecorations ●                        │
+  //  │                                                                              │
+  //  │                          • Update Our Decorations •                          │
+  //  ╰──────────────────────────────────────────────────────────────────────────────╯
+  function updateDecorations() {
+    // updateDecorations - If no active editor then return 
+    if (!activeEditor) {
+      return;
     };
-    i ++;
-  });
-  if (commentsRegEx === "") {
-    return;
-  };
 
-  // updateDecorations - Search for tag matches 
-  let commentMatch;
-  let keywordMatch;
+    // updateDecorations - If no file extension found then return 
+    if (currentFileExt === "") {
+      return;
+    };
 
-  // updateDecorations - Ignore comments in strings 
-  let commentInString = /^[^'"\r\n]+(['"])[^'"]+[\r\n]/gmi
+    // updateDecorations - Clear previous comment Regex definition 
+    commentsRegEx = "";
 
-  // updateDecorations - Load active document into text buffer 
-  let text = activeEditor.document.getText();
-  // Make sure last line ends with new line for later tests
-  if (!text.endsWith('\n')) {
-    // Need the space as well for correct indexing later
-    text = text.concat(' \n');
-  };
+    // updateDecorations - Get comment symbols and set comments RegEx 
+    let i = 0;
+    tagFileJsonData.extensions.forEach(e => {
+      let arr = tagFileJsonData.extensions[i].ext;
+      const extMatch = arr.some((e) => {
+        return e === currentFileExt;
+      });
+      // updateDecorations - If extension supported then set comment's RegEx 
+      if (extMatch) {
+        commentString = tagFileJsonData.extensions[i].commentsRegEx;
+        commentsRegEx = new RegExp(commentString, 'gmi');
+      };
+      i++;
+    });
+    if (commentsRegEx === "") {
+      return;
+    };
 
-  // updateDecorations - Tags Decorations Whole Word Group 1 
-  let decorationOptionsArray = [];
-  tagFileJsonData.tagsArrayGroupOne.forEach(element => {
-    let decorationOptions = vscode.DecorationOptions = [];
-    decorationOptionsArray.push(decorationOptions);
-  });
+    // updateDecorations - Search for tag matches 
+    let commentMatch;
+    let keywordMatch;
 
-  // updateDecorations - Tags Decorations Whole Line Group 2 
-  tagFileJsonData.tagsArrayGroupTwo.forEach(element => {
-    let decorationOptions = vscode.DecorationOptions = [];
-    decorationOptionsArray.push(decorationOptions);
-  });
+    // updateDecorations - Ignore comments in strings 
+    let commentInString = /^[^'"\r\n]+(['"])[^'"]+[\r\n]/gmi;
 
-  // updateDecorations - Tag Block Decorations 
-  tagFileJsonData.tagBlocksArray.forEach(element => {
-    let decorationOptions = vscode.DecorationOptions = [];
-    decorationOptionsArray.push(decorationOptions);
-  });
+    // updateDecorations - Load active document into text buffer 
+    let text = activeEditor.document.getText();
+    // Make sure last line ends with new line for later tests
+    if (!text.endsWith('\n')) {
+      // Need the space as well for correct indexing later
+      text = text.concat(' \n');
+    };
 
-  // updateDecorations - Special Tags Decorations 
-  tagFileJsonData.specialTagsArray.forEach(element => {
-    let decorationOptions = vscode.DecorationOptions = [];
-    decorationOptionsArray.push(decorationOptions);
-  });
+    // updateDecorations - Tags Decorations Whole Word Group 1 
+    let decorationOptionsArray = [];
+    tagFileJsonData.tagsArrayGroupOne.forEach(element => {
+      let decorationOptions = vscode.DecorationOptions = [];
+      decorationOptionsArray.push(decorationOptions);
+    });
 
-  // updateDecorations - Pre-defined Tags Words Only Group 1 
-  let index = 0;
-  tagFileJsonData.tagsArrayGroupOne.forEach(element => {
-      let keyword = element.keyword
-      let keywordRegex = new RegExp('\\b'+keyword+'\\b:', 'gi');
+    // updateDecorations - Tags Decorations Whole Line Group 2 
+    tagFileJsonData.tagsArrayGroupTwo.forEach(element => {
+      let decorationOptions = vscode.DecorationOptions = [];
+      decorationOptionsArray.push(decorationOptions);
+    });
+
+    // updateDecorations - Tag Block Decorations 
+    tagFileJsonData.tagBlocksArray.forEach(element => {
+      let decorationOptions = vscode.DecorationOptions = [];
+      decorationOptionsArray.push(decorationOptions);
+    });
+
+    // updateDecorations - Special Tags Decorations 
+    tagFileJsonData.specialTagsArray.forEach(element => {
+      let decorationOptions = vscode.DecorationOptions = [];
+      decorationOptionsArray.push(decorationOptions);
+    });
+
+    // updateDecorations - Pre-defined Tags Words Only Group 1 
+    let index = 0;
+    tagFileJsonData.tagsArrayGroupOne.forEach(element => {
+      let keyword = element.keyword;
+      let keywordRegex = new RegExp('\\b' + keyword + '\\b:', 'gi');
       while (commentMatch = commentsRegEx.exec(text)) {
         // Skip comments in strings 
         let inString = commentInString.exec(commentMatch);
         if (inString !== null) {
-          commentsRegEx.lastIndex = commentMatch.index + 3
+          commentsRegEx.lastIndex = commentMatch.index + 3;
           continue;
         };
         while (keywordMatch = keywordRegex.exec(commentMatch[0])) {
           let startPosition = commentMatch.index + keywordMatch.index;
           let endPosition = startPosition + keywordMatch[0].length;
-          let endPositionHover = text.indexOf('\n',endPosition);
+          let endPositionHover = text.indexOf('\n', endPosition);
           endPositionHover--;
-          let hoverTextStr = text.substring(startPosition,endPositionHover);
+          let hoverTextStr = text.substring(startPosition, endPositionHover);
           if (hoverTextStr.endsWith('*/')) {
-            hoverTextStr = hoverTextStr.slice(0,hoverTextStr.length-2);
+            hoverTextStr = hoverTextStr.slice(0, hoverTextStr.length - 2);
           };
           if (hoverTextStr.endsWith('-->')) {
-            hoverTextStr = hoverTextStr.slice(0,hoverTextStr.length-3);
+            hoverTextStr = hoverTextStr.slice(0, hoverTextStr.length - 3);
           };
           for (let hoverTextIndex = 1; hoverTextIndex < 5; hoverTextIndex++) {
             // Default to entire comment in case no match found 
@@ -214,32 +214,32 @@ function updateDecorations() {
       if (element.isEnabled) {
         activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
       };
-//    };
-    index ++;
-  });
+      //    };
+      index++;
+    });
 
-  // updateDecorations - Pre-defined Tags Whole Line Group 2 
-  tagFileJsonData.tagsArrayGroupTwo.forEach(element => {
-    let keyword = element.keyword
-    let keywordRegex = new RegExp('\\b'+keyword+'\\b[^:](.*)[^/]', 'gi');
+    // updateDecorations - Pre-defined Tags Whole Line Group 2 
+    tagFileJsonData.tagsArrayGroupTwo.forEach(element => {
+      let keyword = element.keyword;
+      let keywordRegex = new RegExp('\\b' + keyword + '\\b[^:](.*)[^/]', 'gi');
       while (commentMatch = commentsRegEx.exec(text)) {
         // Skip comments in strings 
         let inString = commentInString.exec(commentMatch);
         if (inString !== null) {
-          commentsRegEx.lastIndex = commentMatch.index + 3
+          commentsRegEx.lastIndex = commentMatch.index + 3;
           continue;
         };
         while (keywordMatch = keywordRegex.exec(commentMatch[0])) {
           let startPosition = commentMatch.index + keywordMatch.index;
           let endPosition = startPosition + keywordMatch[0].length;
-          let endPositionHover = text.indexOf('\n',endPosition);
+          let endPositionHover = text.indexOf('\n', endPosition);
           endPositionHover--;
-          let hoverTextStr = text.substring(startPosition,endPositionHover);
+          let hoverTextStr = text.substring(startPosition, endPositionHover);
           if (hoverTextStr.endsWith('*/')) {
-            hoverTextStr = hoverTextStr.slice(0,hoverTextStr.length-2);
+            hoverTextStr = hoverTextStr.slice(0, hoverTextStr.length - 2);
           };
           if (hoverTextStr.endsWith('-->')) {
-            hoverTextStr = hoverTextStr.slice(0,hoverTextStr.length-3);
+            hoverTextStr = hoverTextStr.slice(0, hoverTextStr.length - 3);
           };
           for (let hoverTextIndex = 1; hoverTextIndex < 5; hoverTextIndex++) {
             // Default to entire comment in case no match found 
@@ -255,295 +255,295 @@ function updateDecorations() {
           decorationOptionsArray[index].push(decoration);
         }
       };
-    if (element.isEnabled) {
-      activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
-    };
-    index ++;
-  })
+      if (element.isEnabled) {
+        activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
+      };
+      index++;
+    });
 
-  // updateDecorations - Tag Blocks - Main Title 
-  tagFileJsonData.tagBlocksArray.forEach(element => {
-    let regExStart = element.startText;
-    let regExStartFixed = regExStart.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&');
-    let regExEnd = element.endText;
-    let regExEndFixed = regExEnd.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&');
-    let tagBlockRegEx = new RegExp(regExStartFixed+'([^\r\n]+?)'+regExEndFixed,'gi');
+    // updateDecorations - Tag Blocks - Main Title 
+    tagFileJsonData.tagBlocksArray.forEach(element => {
+      let regExStart = element.startText;
+      let regExStartFixed = regExStart.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&');
+      let regExEnd = element.endText;
+      let regExEndFixed = regExEnd.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&');
+      let tagBlockRegEx = new RegExp(regExStartFixed + '([^\r\n]+?)' + regExEndFixed, 'gi');
+      while (commentMatch = commentsRegEx.exec(text)) {
+        // Skip comments in strings 
+        let inString = commentInString.exec(commentMatch);
+        if (inString !== null) {
+          commentsRegEx.lastIndex = commentMatch.index + 3;
+          continue;
+        };
+        while (specialMatch = tagBlockRegEx.exec(commentMatch[0])) {
+          let startPosition = commentMatch.index + specialMatch.index;
+          let endPosition = startPosition + specialMatch[0].length;
+          let hoverText = '--== ' + specialMatch[0] + ' ==--';
+          let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
+          let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
+          const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
+          decorationOptionsArray[index].push(decoration);
+        };
+      };
+      if (element.isEnabled) {
+        activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
+      };
+      index++;
+    });
+
+    // updateDecorations - Special Tags - Project File Link 
+    let specialTagIndex = 0;
+    let filelinkRegEx = /project\s+file:\s*([\w\s\d!@#$\.\(\)\[\]\{\}\-+]+.md)/gi;
     while (commentMatch = commentsRegEx.exec(text)) {
       // Skip comments in strings 
       let inString = commentInString.exec(commentMatch);
       if (inString !== null) {
-        commentsRegEx.lastIndex = commentMatch.index + 3
+        commentsRegEx.lastIndex = commentMatch.index + 3;
         continue;
-      };
-      while (specialMatch = tagBlockRegEx.exec(commentMatch[0])) {
-        let startPosition = commentMatch.index + specialMatch.index;
-        let endPosition = startPosition + specialMatch[0].length;
-        let hoverText = '--== '+specialMatch[0]+' ==--';
+      }
+      while (specialMatch = filelinkRegEx.exec(commentMatch[0])) {
+        let fileNameIndex = commentMatch[0].indexOf(specialMatch[1]);
+        let startPosition = commentMatch.index + fileNameIndex;
+        let endPosition = startPosition + specialMatch[1].length;
+        let hoverText = '--== ' + specialMatch[1] + ' ==--';
         let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
         let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
         const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
         decorationOptionsArray[index].push(decoration);
       };
     };
-    if (element.isEnabled) {
+    if (tagFileJsonData.specialTagsArray[specialTagIndex].isEnabled) {
       activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
     };
-    index ++;
-  });
+    index++;
+    specialTagIndex++;
 
-  // updateDecorations - Special Tags - File Link 
-  let specialTagIndex = 0;
-  let filelinkRegEx = /project file:\s*([\w\s\d!@()\-+]+.md)/gi;
-  while (commentMatch = commentsRegEx.exec(text)) {
-    // Skip comments in strings 
-    let inString = commentInString.exec(commentMatch);
-    if (inString !== null) {
-      commentsRegEx.lastIndex = commentMatch.index + 3
-      continue;
-    }
-    while (specialMatch = filelinkRegEx.exec(commentMatch[0])) {
-      let fileNameRegEx = new RegExp(specialMatch[1],'gi');
-      let fileNameIndex = fileNameRegEx.exec(commentMatch[0]).index;
-      let startPosition = commentMatch.index + fileNameIndex;
-      let endPosition = startPosition + specialMatch[1].length;
-      let hoverText = '--== '+specialMatch[1]+' ==--';
-      let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
-      let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
-      const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
-      decorationOptionsArray[index].push(decoration);
+    // updateDecorations - Special Tags - Global File Link 
+    let globalFilelinkRegEx = /global\s+file:\s*([\w\s\d!@#$\.\(\)\[\]\{\}\-+]+.md)/gi;
+    while (commentMatch = commentsRegEx.exec(text)) {
+      // Skip comments in strings 
+      let inString = commentInString.exec(commentMatch);
+      if (inString !== null) {
+        commentsRegEx.lastIndex = commentMatch.index + 3;
+        continue;
+      }
+      while (specialMatch = globalFilelinkRegEx.exec(commentMatch[0])) {
+        let fileNameIndex = commentMatch[0].indexOf(specialMatch[1]);
+        //let GlobalfileNameRegEx = new RegExp(specialMatch[1], 'gi');
+        //let GlobalfileNameIndex = GlobalfileNameRegEx.exec(commentMatch[0]).index;
+        let startPosition = commentMatch.index + fileNameIndex;
+        let endPosition = startPosition + specialMatch[1].length;
+        let hoverText = '--== ' + specialMatch[1] + ' ==--';
+        let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
+        let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
+        const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
+        decorationOptionsArray[index].push(decoration);
+      };
     };
-  };
-  if (tagFileJsonData.specialTagsArray[specialTagIndex].isEnabled) {
-    activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
-  };
-  index ++;
-  specialTagIndex ++;
-
-  // updateDecorations - Special Tags - Global File Link 
-  let globalFilelinkRegEx = /global file:\s*([\w\s\d!@()\-+]+.md)/gi;
-  while (commentMatch = commentsRegEx.exec(text)) {
-    // Skip comments in strings 
-    let inString = commentInString.exec(commentMatch);
-    if (inString !== null) {
-      commentsRegEx.lastIndex = commentMatch.index + 3
-      continue;
-    }
-    while (specialMatch = globalFilelinkRegEx.exec(commentMatch[0])) {
-      let GlobalfileNameRegEx = new RegExp(specialMatch[1],'gi');
-      let GlobalfileNameIndex = GlobalfileNameRegEx.exec(commentMatch[0]).index;
-      let startPosition = commentMatch.index + GlobalfileNameIndex;
-      let endPosition = startPosition + specialMatch[1].length;
-      let hoverText = '--== '+specialMatch[1]+' ==--';
-      let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
-      let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
-      const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
-      decorationOptionsArray[index].push(decoration);
+    if (tagFileJsonData.specialTagsArray[specialTagIndex].isEnabled) {
+      activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
     };
-  };
-  if (tagFileJsonData.specialTagsArray[specialTagIndex].isEnabled) {
-    activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
-  };
-  index ++;
-  specialTagIndex ++;
+    index++;
+    specialTagIndex++;
 
-  // updateDecorations - Special Tags - Parentheses 
-  let parenthesesRegEx = /(\(.+\))/gi;
-  while (commentMatch = commentsRegEx.exec(text)) {
-    // Skip comments in strings 
-    let inString = commentInString.exec(commentMatch);
-    if (inString !== null) {
-      commentsRegEx.lastIndex = commentMatch.index + 3
-      continue;
-    }
-    while (specialMatch = parenthesesRegEx.exec(commentMatch[0])) {
-      let startPosition = commentMatch.index + specialMatch.index;
-      let endPosition = startPosition + specialMatch[0].length;
-      let hoverText = '--== '+specialMatch[0]+' ==--';
-      let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
-      let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
-      const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
-      decorationOptionsArray[index].push(decoration);
+    // updateDecorations - Special Tags - Parentheses 
+    let parenthesesRegEx = /(\(.+\))/gi;
+    while (commentMatch = commentsRegEx.exec(text)) {
+      // Skip comments in strings 
+      let inString = commentInString.exec(commentMatch);
+      if (inString !== null) {
+        commentsRegEx.lastIndex = commentMatch.index + 3;
+        continue;
+      }
+      while (specialMatch = parenthesesRegEx.exec(commentMatch[0])) {
+        let startPosition = commentMatch.index + specialMatch.index;
+        let endPosition = startPosition + specialMatch[0].length;
+        let hoverText = '--== ' + specialMatch[0] + ' ==--';
+        let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
+        let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
+        const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
+        decorationOptionsArray[index].push(decoration);
+      };
     };
-  };
-  if (tagFileJsonData.specialTagsArray[specialTagIndex].isEnabled) {
-    activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
-  };
-  index ++;
-  specialTagIndex ++;
-
-  // updateDecorations - Special Tags - Curly Braces 
-  let curlyRegEx = /(\{.+\})/gi;
-  while (commentMatch = commentsRegEx.exec(text)) {
-    // Skip comments in strings 
-    let inString = commentInString.exec(commentMatch);
-    if (inString !== null) {
-      commentsRegEx.lastIndex = commentMatch.index + 3
-      continue;
+    if (tagFileJsonData.specialTagsArray[specialTagIndex].isEnabled) {
+      activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
     };
-    while (specialMatch = curlyRegEx.exec(commentMatch[0])) {
-      let startPosition = commentMatch.index + specialMatch.index;
-      let endPosition = startPosition + specialMatch[0].length;
-      let hoverText = '--== '+specialMatch[0]+' ==--';
-      let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
-      let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
-      const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
-      decorationOptionsArray[index].push(decoration);
+    index++;
+    specialTagIndex++;
+
+    // updateDecorations - Special Tags - Curly Braces 
+    let curlyRegEx = /(\{.+\})/gi;
+    while (commentMatch = commentsRegEx.exec(text)) {
+      // Skip comments in strings 
+      let inString = commentInString.exec(commentMatch);
+      if (inString !== null) {
+        commentsRegEx.lastIndex = commentMatch.index + 3;
+        continue;
+      };
+      while (specialMatch = curlyRegEx.exec(commentMatch[0])) {
+        let startPosition = commentMatch.index + specialMatch.index;
+        let endPosition = startPosition + specialMatch[0].length;
+        let hoverText = '--== ' + specialMatch[0] + ' ==--';
+        let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
+        let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
+        const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
+        decorationOptionsArray[index].push(decoration);
+      };
     };
-  };
-  if (tagFileJsonData.specialTagsArray[specialTagIndex].isEnabled) {
-    activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
-  };
-  index ++;
-  specialTagIndex ++;
-
-  // updateDecorations - Special Tags - Brackets 
-  let bracketRegEx = /(\[(.+)\])/gi;
-  while (commentMatch = commentsRegEx.exec(text)) {
-    // Skip comments in strings 
-    let inString = commentInString.exec(commentMatch);
-    if (inString !== null) {
-      commentsRegEx.lastIndex = commentMatch.index + 3
-      continue;
-    }
-    while (specialMatch = bracketRegEx.exec(commentMatch[0])) {
-      let startPosition = commentMatch.index + specialMatch.index;
-      let endPosition = startPosition + specialMatch[0].length;
-      let hoverText = '--== '+specialMatch[0]+' ==--';
-      let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
-      let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
-      const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
-      decorationOptionsArray[index].push(decoration);
+    if (tagFileJsonData.specialTagsArray[specialTagIndex].isEnabled) {
+      activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
     };
-  };
-  if (tagFileJsonData.specialTagsArray[specialTagIndex].isEnabled) {
-    activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
-  };
-  index ++;
-  specialTagIndex ++;
+    index++;
+    specialTagIndex++;
 
-  // updateDecorations - Special Tags - Backticks 
-  let backtickRegEx = /(`.*?`)/gi;
-  while (commentMatch = commentsRegEx.exec(text)) {
-    // Skip comments in strings 
-    let inString = commentInString.exec(commentMatch);
-    if (inString !== null) {
-      commentsRegEx.lastIndex = commentMatch.index + 3
-      continue;
+    // updateDecorations - Special Tags - Brackets 
+    let bracketRegEx = /(\[(.+)\])/gi;
+    while (commentMatch = commentsRegEx.exec(text)) {
+      // Skip comments in strings 
+      let inString = commentInString.exec(commentMatch);
+      if (inString !== null) {
+        commentsRegEx.lastIndex = commentMatch.index + 3;
+        continue;
+      }
+      while (specialMatch = bracketRegEx.exec(commentMatch[0])) {
+        let startPosition = commentMatch.index + specialMatch.index;
+        let endPosition = startPosition + specialMatch[0].length;
+        let hoverText = '--== ' + specialMatch[0] + ' ==--';
+        let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
+        let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
+        const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
+        decorationOptionsArray[index].push(decoration);
+      };
     };
-    while (specialMatch = backtickRegEx.exec(commentMatch[0])) {
-      let startPosition = commentMatch.index + specialMatch.index;
-      let endPosition = startPosition + specialMatch[0].length;
-      let hoverText = '--== '+specialMatch[0]+' ==--';
-      let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
-      let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
-      const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
-      decorationOptionsArray[index].push(decoration);
+    if (tagFileJsonData.specialTagsArray[specialTagIndex].isEnabled) {
+      activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
     };
-  };
-  if (tagFileJsonData.specialTagsArray[specialTagIndex].isEnabled) {
-    activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
-  };
-  index ++;
-  specialTagIndex ++;
+    index++;
+    specialTagIndex++;
 
-  // updateDecorations - Special Tags - Double Quotes 
-  let doubleQuotesRegEx = /(\".*?\")/gi;
-  while (commentMatch = commentsRegEx.exec(text)) {
-    // Skip comments in strings 
-    let inString = commentInString.exec(commentMatch);
-    if (inString !== null) {
-      commentsRegEx.lastIndex = commentMatch.index + 3
-      continue;
+    // updateDecorations - Special Tags - Backticks 
+    let backtickRegEx = /(`.*?`)/gi;
+    while (commentMatch = commentsRegEx.exec(text)) {
+      // Skip comments in strings 
+      let inString = commentInString.exec(commentMatch);
+      if (inString !== null) {
+        commentsRegEx.lastIndex = commentMatch.index + 3;
+        continue;
+      };
+      while (specialMatch = backtickRegEx.exec(commentMatch[0])) {
+        let startPosition = commentMatch.index + specialMatch.index;
+        let endPosition = startPosition + specialMatch[0].length;
+        let hoverText = '--== ' + specialMatch[0] + ' ==--';
+        let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
+        let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
+        const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
+        decorationOptionsArray[index].push(decoration);
+      };
     };
-    while (specialMatch = doubleQuotesRegEx.exec(commentMatch[0])) {
-      let startPosition = commentMatch.index + specialMatch.index;
-      let endPosition = startPosition + specialMatch[0].length;
-      let hoverText = '--== '+specialMatch[0]+' ==--';
-      let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
-      let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
-      const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
-      decorationOptionsArray[index].push(decoration);
+    if (tagFileJsonData.specialTagsArray[specialTagIndex].isEnabled) {
+      activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
     };
-  };
-  if (tagFileJsonData.specialTagsArray[specialTagIndex].isEnabled) {
-    activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
-  };
-  index ++;
-  specialTagIndex ++;
+    index++;
+    specialTagIndex++;
 
-  // updateDecorations - Special Tags - Single Quotes 
-  let singleQuotesRegEx = /('.*')/gi;
-  while (commentMatch = commentsRegEx.exec(text)) {
-    // Skip comments in strings 
-    let inString = commentInString.exec(commentMatch);
-    if (inString !== null) {
-      commentsRegEx.lastIndex = commentMatch.index + 3
-      continue;
+    // updateDecorations - Special Tags - Double Quotes 
+    let doubleQuotesRegEx = /(\".*?\")/gi;
+    while (commentMatch = commentsRegEx.exec(text)) {
+      // Skip comments in strings 
+      let inString = commentInString.exec(commentMatch);
+      if (inString !== null) {
+        commentsRegEx.lastIndex = commentMatch.index + 3;
+        continue;
+      };
+      while (specialMatch = doubleQuotesRegEx.exec(commentMatch[0])) {
+        let startPosition = commentMatch.index + specialMatch.index;
+        let endPosition = startPosition + specialMatch[0].length;
+        let hoverText = '--== ' + specialMatch[0] + ' ==--';
+        let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
+        let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
+        const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
+        decorationOptionsArray[index].push(decoration);
+      };
     };
-    while (specialMatch = singleQuotesRegEx.exec(commentMatch[0])) {
-      let startPosition = commentMatch.index + specialMatch.index;
-      let endPosition = startPosition + specialMatch[0].length;
-      let hoverText = '--== '+specialMatch[0]+' ==--';
-      let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
-      let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
-      const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
-      decorationOptionsArray[index].push(decoration);
+    if (tagFileJsonData.specialTagsArray[specialTagIndex].isEnabled) {
+      activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
     };
+    index++;
+    specialTagIndex++;
+
+    // updateDecorations - Special Tags - Single Quotes 
+    let singleQuotesRegEx = /('.*')/gi;
+    while (commentMatch = commentsRegEx.exec(text)) {
+      // Skip comments in strings 
+      let inString = commentInString.exec(commentMatch);
+      if (inString !== null) {
+        commentsRegEx.lastIndex = commentMatch.index + 3;
+        continue;
+      };
+      while (specialMatch = singleQuotesRegEx.exec(commentMatch[0])) {
+        let startPosition = commentMatch.index + specialMatch.index;
+        let endPosition = startPosition + specialMatch[0].length;
+        let hoverText = '--== ' + specialMatch[0] + ' ==--';
+        let rangeSpecialStart = activeEditor.document.positionAt(startPosition);
+        let rangeSpecialEnd = activeEditor.document.positionAt(endPosition);
+        const decoration = { range: new vscode.Range(rangeSpecialStart, rangeSpecialEnd), hoverMessage: hoverText };
+        decorationOptionsArray[index].push(decoration);
+      };
+    };
+    if (tagFileJsonData.specialTagsArray[specialTagIndex].isEnabled) {
+      activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
+    };
+    index++;
+    specialTagIndex++;
+
   };
-  if (tagFileJsonData.specialTagsArray[specialTagIndex].isEnabled) {
-    activeEditor.setDecorations(decorationTypes[index], decorationOptionsArray[index]);
+
+
+  //  ╭──────────────────────────────────────────────────────────────────────────────╮
+  //  │                    ● Function triggerUpdateDecorations ●                     │
+  //  │                                                                              │
+  //  │                    • Timer for Updating Our Decoraions •                     │
+  //  ╰──────────────────────────────────────────────────────────────────────────────╯
+  function triggerUpdateDecorations(throttle = false) {
+
+    if (timeout) {
+      clearTimeout(timeout);
+      timeout = undefined;
+    };
+
+    if (throttle) {
+      timeout = setTimeout(updateDecorations, 100);
+    } else {
+      updateDecorations();
+    };
+
   };
-  index ++;
-  specialTagIndex ++;
-
-};
-
-
-//  ╭──────────────────────────────────────────────────────────────────────────────╮
-//  │                    ● Function triggerUpdateDecorations ●                     │
-//  │                                                                              │
-//  │                    • Timer for Updating Our Decoraions •                     │
-//  ╰──────────────────────────────────────────────────────────────────────────────╯
-function triggerUpdateDecorations(throttle = false) {
-
-  if (timeout) {
-    clearTimeout(timeout);
-    timeout = undefined;
-  };
-
-  if (throttle) {
-    timeout = setTimeout(updateDecorations, 100);
-  } else {
-    updateDecorations();
-  };
-
-};
 
   if (activeEditor) {
     triggerUpdateDecorations();
   };
 
   vscode.window.onDidChangeActiveTextEditor(editor => {
-  activeEditor = editor;
-  if (editor) {
-    getExtension();
-    triggerUpdateDecorations();
-  };
+    activeEditor = editor;
+    if (editor) {
+      getExtension();
+      triggerUpdateDecorations();
+    };
   }, null, context.subscriptions);
 
   vscode.workspace.onDidChangeTextDocument(event => {
-  if (activeEditor && event.document === activeEditor.document) {
-    triggerUpdateDecorations(true);
-  };
+    if (activeEditor && event.document === activeEditor.document) {
+      triggerUpdateDecorations(true);
+    };
   }, null, context.subscriptions);
 
   vscode.workspace.onDidSaveTextDocument(async (TextDocument) => {
-  if (activeEditor && TextDocument.fileName === tagSettingsFile) {
-    tagFileData = await readFile(tagSettingsFile, 'utf-8');         // Read file into memory
-    tagFileJsonData = await JSON.parse(tagFileData);                // Parse the tag settings json file
-    myData.tagFileJsonData = tagFileJsonData;
-    triggerUpdateDecorations(true);
-  };
+    if (activeEditor && TextDocument.fileName === tagSettingsFile) {
+      tagFileData = await readFile(tagSettingsFile, 'utf-8');         // Read file into memory
+      tagFileJsonData = await JSON.parse(tagFileData);                // Parse the tag settings json file
+      myData.tagFileJsonData = tagFileJsonData;
+      triggerUpdateDecorations(true);
+    };
   }, null, context.subscriptions);
 
 };
@@ -554,12 +554,12 @@ function triggerUpdateDecorations(throttle = false) {
 //  │                                                                              │
 //  │                • Called When Treeview Keyword Item Clicked •                 │
 //  ╰──────────────────────────────────────────────────────────────────────────────╯
-async function gotoLine(item,line,col) {
+async function gotoLine(item, line, col) {
 
-  let pos = new vscode.Position(line,col);
+  let pos = new vscode.Position(line, col);
   await vscode.window.showTextDocument(
-    vscode.Uri.file(item), 
-    {selection: new vscode.Range(pos, pos)}
+    vscode.Uri.file(item),
+    { selection: new vscode.Range(pos, pos) }
   );
 
 };
@@ -580,7 +580,7 @@ async function initTagSettingsFilePath() {
     };
   } else {
     // initTagSettingsFilePath - Otherwise create folder and Tag Settings File 
-    fs.mkdirSync(tagSettingsPath, {recursive: true});
+    fs.mkdirSync(tagSettingsPath, { recursive: true });
     fs.writeFileSync(tagSettingsFile, JSON.stringify(defaultTagSettings, null, 2));
   };
 };
@@ -611,7 +611,7 @@ async function editTagSettingsFile() {
 async function restoreTagSettingsFile() {
 
   // restoreTagSettingsFile - Prompt user for confirmation 
-  const selectedItem = await vscode.window.showWarningMessage('All tag settings will be restored to default settings. Any changes you have made will be lost.','Continue','Cancel');
+  const selectedItem = await vscode.window.showWarningMessage('All tag settings will be restored to default settings. Any changes you have made will be lost.', 'Continue', 'Cancel');
   if ('Continue' !== selectedItem) {
     return;
   };
@@ -637,12 +637,12 @@ async function restoreTagSettingsFile() {
 function getExtension() {
 
   let activeEditor = vscode.window.activeTextEditor;
-	if (!activeEditor) {
+  if (!activeEditor) {
     currentFileExt = "";
-		return;
-	};
+    return;
+  };
   let a = vscode.window.activeTextEditor.document.fileName.split(".");
-  if( a.length === 1 || ( a[0] === "" && a.length === 2 ) ) {
+  if (a.length === 1 || (a[0] === "" && a.length === 2)) {
     currentFileExt = "";
   } else {
     currentFileExt = a.pop().toLowerCase();
@@ -656,12 +656,12 @@ function getExtension() {
 //  │                                                                              │
 //  │                       • Deactivate Extension Cleanup •                       │
 //  ╰──────────────────────────────────────────────────────────────────────────────╯
-function deactivate() {}
+function deactivate() { }
 
 //  ╭──────────────────────────────────────────────────────────────────────────────╮
 //  │                              ● Export modules ●                              │
 //  ╰──────────────────────────────────────────────────────────────────────────────╯
 module.exports = {
-    activate,
-    deactivate,
+  activate,
+  deactivate,
 };
